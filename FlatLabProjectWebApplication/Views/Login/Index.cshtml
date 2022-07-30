@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="http://thevectorlab.net/flatlab/img/favicon.png">
+
+    <title>Giriş Yap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/flatlab-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/flatlab-master/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/flatlab-master/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/flatlab-master/css/style.css" rel="stylesheet">
+    <link href="~/flatlab-master/css/style-responsive.css" rel="stylesheet" />
+</head>
+<body class="login-body">
+    <div class="container">
+        <form method="post" class="form-signin" id="commentForm" action="/Login/Index">
+            <h2 class="form-signin-heading">Giriş Yap</h2>
+            <div class="login-wrap">
+                <input type="text" class="form-control" name="UserName" placeholder="Kullanıcı Adı" autofocus required/>
+                <input type="password" name="Password" class="form-control" placeholder="Şifre" required/>
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me"> Beni hatırla
+                    <span class="pull-right">
+                        <a data-toggle="modal" href="/Login"> Şifremi Unuttum</a>
+                    </span>
+                </label>
+                <button class="btn btn-lg btn-login btn-block" type="submit">Giriş Yap</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        $("#commentForm").validate();
+    </script>
+<!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/flatlab-master/js/jquery.js"></script>
+    <script src="~/flatlab-master/js/bootstrap.min.js"></script>
+    <script src="~/flatlab-master/js/jquery.validate.min.js"></script>
+</body>
+</html>
+

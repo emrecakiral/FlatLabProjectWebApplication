@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5B762D3-FD5A-4BC7-B8CD-388C0985D972}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlatLabProjectWebApplication</RootNamespace>
+    <AssemblyName>FlatLabProjectWebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.11.1.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ManagerJobController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ErrorPagesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
+    <Compile Include="Controllers\PersonnelController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\PersonnelRoleProvider.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
+    <Compile Include="Roles\ManagerRoleProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="flatlab-master\.gitattributes" />
+    <Content Include="flatlab-master\404.html" />
+    <Content Include="flatlab-master\500.html" />
+    <Content Include="flatlab-master\advanced_form_components.html" />
+    <Content Include="flatlab-master\assets\advanced-datatable\media\css\demo_page.css" />
+    <Content Include="flatlab-master\assets\advanced-datatable\media\css\demo_table.css" />
+    <Content Include="flatlab-master\assets\advanced-datatable\media\js\jquery.dataTables.js" />
+    <Content Include="flatlab-master\assets\bootstrap-colorpicker\css\colorpicker.css" />
+    <Content Include="flatlab-master\assets\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="flatlab-master\assets\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="flatlab-master\assets\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="flatlab-master\assets\bootstrap-daterangepicker\date.js" />
+    <Content Include="flatlab-master\assets\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="flatlab-master\assets\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="flatlab-master\assets\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="flatlab-master\assets\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="flatlab-master\assets\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="flatlab-master\assets\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="flatlab-master\assets\bootstrap-fileupload\bootstrap-fileupload.css" />
+    <Content Include="flatlab-master\assets\bootstrap-fileupload\bootstrap-fileupload.js" />
+    <Content Include="flatlab-master\assets\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="flatlab-master\assets\bootstrap-switch\static\js\bootstrap-switch.js" />
+    <Content Include="flatlab-master\assets\bootstrap-switch\static\stylesheets\bootstrap-switch.css" />
+    <Content Include="flatlab-master\assets\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="flatlab-master\assets\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="flatlab-master\assets\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="flatlab-master\assets\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="flatlab-master\assets\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="flatlab-master\assets\chart-master\Chart.js" />
+    <Content Include="flatlab-master\assets\ckeditor\ckeditor.js" />
+    <Content Include="flatlab-master\assets\data-tables\DT_bootstrap.css" />
+    <Content Include="flatlab-master\assets\data-tables\DT_bootstrap.js" />
+    <Content Include="flatlab-master\assets\data-tables\jquery.dataTables.js" />
+    <Content Include="flatlab-master\assets\dropzone\css\dropzone.css" />
+    <Content Include="flatlab-master\assets\dropzone\dropzone.js" />
+    <Content Include="flatlab-master\assets\fancybox\source\jquery.fancybox.css" />
+    <Content Include="flatlab-master\assets\fancybox\source\jquery.fancybox.js" />
+    <Content Include="flatlab-master\assets\file-uploader\css\jquery.fileupload-noscript.css" />
+    <Content Include="flatlab-master\assets\file-uploader\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="flatlab-master\assets\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="flatlab-master\assets\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\main.js" />
+    <Content Include="flatlab-master\assets\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="flatlab-master\assets\flot\jquery.flot.crosshair.js" />
+    <Content Include="flatlab-master\assets\flot\jquery.flot.js" />
+    <Content Include="flatlab-master\assets\flot\jquery.flot.pie.js" />
+    <Content Include="flatlab-master\assets\flot\jquery.flot.resize.js" />
+    <Content Include="flatlab-master\assets\flot\jquery.flot.stack.js" />
+    <Content Include="flatlab-master\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="flatlab-master\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="flatlab-master\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="flatlab-master\assets\fuelux\css\tree-style.css" />
+    <Content Include="flatlab-master\assets\fuelux\js\spinner.min.js" />
+    <Content Include="flatlab-master\assets\fuelux\js\tree.min.js" />
+    <Content Include="flatlab-master\assets\fullcalendar\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="flatlab-master\assets\fullcalendar\fullcalendar\fullcalendar.min.js" />
+    <Content Include="flatlab-master\assets\gritter\css\jquery.gritter.css" />
+    <Content Include="flatlab-master\assets\gritter\js\jquery.gritter.js" />
+    <Content Include="flatlab-master\assets\jcrop\css\jquery.Jcrop.min.css" />
+    <Content Include="flatlab-master\assets\jcrop\js\jquery.color.js" />
+    <Content Include="flatlab-master\assets\jcrop\js\jquery.Jcrop.min.js" />
+    <Content Include="flatlab-master\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="flatlab-master\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\jquery.fileupload-fp.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="flatlab-master\assets\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="flatlab-master\assets\jquery-knob\js\jquery.knob.js" />
+    <Content Include="flatlab-master\assets\jquery-multi-select\css\multi-select.css" />
+    <Content Include="flatlab-master\assets\jquery-multi-select\js\jquery.multi-select.js" />
+    <Content Include="flatlab-master\assets\jquery-multi-select\js\jquery.quicksearch.js" />
+    <Content Include="flatlab-master\assets\jquery-ui\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="flatlab-master\assets\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="flatlab-master\assets\morris.js-0.4.3\morris.css" />
+    <Content Include="flatlab-master\assets\morris.js-0.4.3\morris.min.js" />
+    <Content Include="flatlab-master\assets\morris.js-0.4.3\raphael-min.js" />
+    <Content Include="flatlab-master\assets\nestable\jquery.nestable.css" />
+    <Content Include="flatlab-master\assets\nestable\jquery.nestable.js" />
+    <Content Include="flatlab-master\assets\select2\css\select2.min.css" />
+    <Content Include="flatlab-master\assets\select2\js\select2.min.js" />
+    <Content Include="flatlab-master\assets\summernote\dist\summernote.css" />
+    <Content Include="flatlab-master\assets\summernote\dist\summernote.min.js" />
+    <Content Include="flatlab-master\assets\switchery\switchery.css" />
+    <Content Include="flatlab-master\assets\switchery\switchery.js" />
+    <Content Include="flatlab-master\assets\toastr-master\toastr.css" />
+    <Content Include="flatlab-master\assets\toastr-master\toastr.js" />
+    <Content Include="flatlab-master\assets\xchart\d3.v3.min.js" />
+    <Content Include="flatlab-master\assets\xchart\xcharts.css" />
+    <Content Include="flatlab-master\assets\xchart\xcharts.min.js" />
+    <Content Include="flatlab-master\basic_table.html" />
+    <Content Include="flatlab-master\blank.html" />
+    <Content Include="flatlab-master\boxed_page.html" />
+    <Content Include="flatlab-master\buttons.html" />
+    <Content Include="flatlab-master\calendar.html" />
+    <Content Include="flatlab-master\chartjs.html" />
+    <Content Include="flatlab-master\chat_room.html" />
+    <Content Include="flatlab-master\coming_soon.html" />
+    <Content Include="flatlab-master\css\bootstrap-reset.css" />
+    <Content Include="flatlab-master\css\bootstrap.min.css" />
+    <Content Include="flatlab-master\css\gallery.css" />
+    <Content Include="flatlab-master\css\image-crop.css" />
+    <Content Include="flatlab-master\css\invoice-print.css" />
+    <Content Include="flatlab-master\css\jquery.steps.css" />
+    <Content Include="flatlab-master\css\owl.carousel.css" />
+    <Content Include="flatlab-master\css\slidebars.css" />
+    <Content Include="flatlab-master\css\soon.css" />
+    <Content Include="flatlab-master\css\style-responsive.css" />
+    <Content Include="flatlab-master\css\style.css" />
+    <Content Include="flatlab-master\css\table-responsive.css" />
+    <Content Include="flatlab-master\css\tasks.css" />
+    <Content Include="flatlab-master\css\yamm.css" />
+    <Content Include="flatlab-master\draggable_portlet.html" />
+    <Content Include="flatlab-master\dropzone.html" />
+    <Content Include="flatlab-master\dynamic_table.html" />
+    <Content Include="flatlab-master\editable_table.html" />
+    <Content Include="flatlab-master\email_template.html" />
+    <Content Include="flatlab-master\faq.html" />
+    <Content Include="flatlab-master\fb_wall.html" />
+    <Content Include="flatlab-master\file_upload.html" />
+    <Content Include="flatlab-master\flatlab.html" />
+    <Content Include="flatlab-master\flot_chart.html" />
+    <Content Include="flatlab-master\font_awesome.html" />
+    <Content Include="flatlab-master\form_component.html" />
+    <Content Include="flatlab-master\form_validation.html" />
+    <Content Include="flatlab-master\form_wizard.html" />
+    <Content Include="flatlab-master\gallery.html" />
+    <Content Include="flatlab-master\general.html" />
+    <Content Include="flatlab-master\google_maps.html" />
+    <Content Include="flatlab-master\grids.html" />
+    <Content Include="flatlab-master\header-color.html" />
+    <Content Include="flatlab-master\horizontal_menu.html" />
+    <Content Include="flatlab-master\image_cropping.html" />
+    <Content Include="flatlab-master\img\avatar-mini.jpg" />
+    <Content Include="flatlab-master\img\avatar-mini2.jpg" />
+    <Content Include="flatlab-master\img\avatar-mini3.jpg" />
+    <Content Include="flatlab-master\img\avatar-mini4.jpg" />
+    <Content Include="flatlab-master\img\avatar1.jpg" />
+    <Content Include="flatlab-master\img\avatar1_small.jpg" />
+    <Content Include="flatlab-master\img\blue-bg.jpg" />
+    <Content Include="flatlab-master\img\chat-attach.jpg" />
+    <Content Include="flatlab-master\img\chat-avatar.jpg" />
+    <Content Include="flatlab-master\img\chat-avatar2.jpg" />
+    <Content Include="flatlab-master\img\dark-bg.jpg" />
+    <Content Include="flatlab-master\img\email-img\banner.jpg" />
+    <Content Include="flatlab-master\img\email-img\icon-cal.png" />
+    <Content Include="flatlab-master\img\email-img\icon-tel.png" />
+    <Content Include="flatlab-master\img\email-img\image1.png" />
+    <Content Include="flatlab-master\img\email-img\image2.png" />
+    <Content Include="flatlab-master\img\email-img\image3.png" />
+    <Content Include="flatlab-master\img\email-img\image4.png" />
+    <Content Include="flatlab-master\img\email-img\main-img.png" />
+    <Content Include="flatlab-master\img\email-img\social-facebook.png" />
+    <Content Include="flatlab-master\img\email-img\social-google.png" />
+    <Content Include="flatlab-master\img\email-img\social-linkedin.png" />
+    <Content Include="flatlab-master\img\email-img\social-twitter.png" />
+    <Content Include="flatlab-master\img\email-img\social-youtube.png" />
+    <Content Include="flatlab-master\img\email-img\vector-lab.jpg" />
+    <Content Include="flatlab-master\img\fb-img.jpg" />
+    <Content Include="flatlab-master\img\file-search\ai.png" />
+    <Content Include="flatlab-master\img\file-search\doc.png" />
+    <Content Include="flatlab-master\img\file-search\email.png" />
+    <Content Include="flatlab-master\img\file-search\eps.png" />
+    <Content Include="flatlab-master\img\file-search\jpg.png" />
+    <Content Include="flatlab-master\img\file-search\pdf.png" />
+    <Content Include="flatlab-master\img\file-search\ppt.png" />
+    <Content Include="flatlab-master\img\file-search\psd.png" />
+    <Content Include="flatlab-master\img\file-search\rss.png" />
+    <Content Include="flatlab-master\img\file-search\xls.png" />
+    <Content Include="flatlab-master\img\file-search\zip.png" />
+    <Content Include="flatlab-master\img\flags\de.png" />
+    <Content Include="flatlab-master\img\flags\es.png" />
+    <Content Include="flatlab-master\img\flags\fr.png" />
+    <Content Include="flatlab-master\img\flags\ru.png" />
+    <Content Include="flatlab-master\img\flags\us.png" />
+    <Content Include="flatlab-master\img\follower-avatar.jpg" />
+    <Content Include="flatlab-master\img\gallery\1.jpg" />
+    <Content Include="flatlab-master\img\gallery\2.jpg" />
+    <Content Include="flatlab-master\img\gallery\3.jpg" />
+    <Content Include="flatlab-master\img\gallery\4.jpg" />
+    <Content Include="flatlab-master\img\gallery\5.jpg" />
+    <Content Include="flatlab-master\img\gallery\6.jpg" />
+    <Content Include="flatlab-master\img\green-bg.jpg" />
+    <Content Include="flatlab-master\img\mail-avatar.jpg" />
+    <Content Include="flatlab-master\img\mega-menu\mega-menu-images1.jpg" />
+    <Content Include="flatlab-master\img\mega-menu\mega-menu-images2.jpg" />
+    <Content Include="flatlab-master\img\mega-menu\mega-menu-images3.jpg" />
+    <Content Include="flatlab-master\img\mega-menu\mega-menu-images4.jpg" />
+    <Content Include="flatlab-master\img\mega-menu\mega-menu-images5.jpg" />
+    <Content Include="flatlab-master\img\mega-menu\mega-menu-images6.jpg" />
+    <Content Include="flatlab-master\img\mega_icon1.png" />
+    <Content Include="flatlab-master\img\mega_icon2.png" />
+    <Content Include="flatlab-master\img\mega_icon3.png" />
+    <Content Include="flatlab-master\img\mega_icon4.png" />
+    <Content Include="flatlab-master\img\nav-expand.png" />
+    <Content Include="flatlab-master\img\photos\user1.png" />
+    <Content Include="flatlab-master\img\photos\user2.png" />
+    <Content Include="flatlab-master\img\photos\user3.png" />
+    <Content Include="flatlab-master\img\photos\user4.png" />
+    <Content Include="flatlab-master\img\photos\user5.png" />
+    <Content Include="flatlab-master\img\pro-ac-1.png" />
+    <Content Include="flatlab-master\img\pro-ac-2.png" />
+    <Content Include="flatlab-master\img\product-list\pro-1.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro-thumb-1.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro-thumb-2.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro-thumb-3.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro-thumb-big.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro1.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro2.jpg" />
+    <Content Include="flatlab-master\img\product-list\pro3.jpg" />
+    <Content Include="flatlab-master\img\product1.jpg" />
+    <Content Include="flatlab-master\img\product2.png" />
+    <Content Include="flatlab-master\img\product3.png" />
+    <Content Include="flatlab-master\img\profile-avatar.jpg" />
+    <Content Include="flatlab-master\img\purple-bg.jpg" />
+    <Content Include="flatlab-master\img\ring.jpg" />
+    <Content Include="flatlab-master\img\sm-img-1.jpg" />
+    <Content Include="flatlab-master\img\sm-img-2.jpg" />
+    <Content Include="flatlab-master\img\sm-img-3.jpg" />
+    <Content Include="flatlab-master\img\vector-lab.jpg" />
+    <Content Include="flatlab-master\inbox.html" />
+    <Content Include="flatlab-master\inbox_details.html" />
+    <Content Include="flatlab-master\index.html" />
+    <Content Include="flatlab-master\inline_editor.html" />
+    <Content Include="flatlab-master\invoice.html" />
+    <Content Include="flatlab-master\js\advanced-form-components.js" />
+    <Content Include="flatlab-master\js\all-chartjs.js" />
+    <Content Include="flatlab-master\js\bootstrap-switch.js" />
+    <Content Include="flatlab-master\js\bootstrap-validator.min.js" />
+    <Content Include="flatlab-master\js\bootstrap.min.js" />
+    <Content Include="flatlab-master\js\common-scripts.js" />
+    <Content Include="flatlab-master\js\count.js" />
+    <Content Include="flatlab-master\js\draggable-portlet.js" />
+    <Content Include="flatlab-master\js\dynamic_table_init.js" />
+    <Content Include="flatlab-master\js\easy-pie-chart.js" />
+    <Content Include="flatlab-master\js\editable-table.js" />
+    <Content Include="flatlab-master\js\external-dragging-calendar.js" />
+    <Content Include="flatlab-master\js\flot-chart.js" />
+    <Content Include="flatlab-master\js\form-component.js" />
+    <Content Include="flatlab-master\js\form-image-crop.js" />
+    <Content Include="flatlab-master\js\form-validation-script.js" />
+    <Content Include="flatlab-master\js\ga.js" />
+    <Content Include="flatlab-master\js\gmaps-scripts.js" />
+    <Content Include="flatlab-master\js\gmaps.js" />
+    <Content Include="flatlab-master\js\gritter.js" />
+    <Content Include="flatlab-master\js\hover-dropdown.js" />
+    <Content Include="flatlab-master\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="flatlab-master\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="flatlab-master\js\jquery.customSelect.min.js" />
+    <Content Include="flatlab-master\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="flatlab-master\js\jquery.js" />
+    <Content Include="flatlab-master\js\jquery.nicescroll.js" />
+    <Content Include="flatlab-master\js\jquery.pulsate.min.js" />
+    <Content Include="flatlab-master\js\jquery.scrollTo.min.js" />
+    <Content Include="flatlab-master\js\jquery.sparkline.js" />
+    <Content Include="flatlab-master\js\jquery.steps.min.js" />
+    <Content Include="flatlab-master\js\jquery.stepy.js" />
+    <Content Include="flatlab-master\js\jquery.tagsinput.js" />
+    <Content Include="flatlab-master\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="flatlab-master\js\jquery.validate.min.js" />
+    <Content Include="flatlab-master\js\modernizr.custom.js" />
+    <Content Include="flatlab-master\js\morris-script.js" />
+    <Content Include="flatlab-master\js\nestable.js" />
+    <Content Include="flatlab-master\js\owl.carousel.js" />
+    <Content Include="flatlab-master\js\pulstate.js" />
+    <Content Include="flatlab-master\js\respond.min.js" />
+    <Content Include="flatlab-master\js\slidebars.min.js" />
+    <Content Include="flatlab-master\js\sliders.js" />
+    <Content Include="flatlab-master\js\soon\custom.js" />
+    <Content Include="flatlab-master\js\soon\plugins.js" />
+    <Content Include="flatlab-master\js\sparkline-chart.js" />
+    <Content Include="flatlab-master\js\tasks.js" />
+    <Content Include="flatlab-master\js\toucheffects.js" />
+    <Content Include="flatlab-master\js\tree.js" />
+    <Content Include="flatlab-master\language_switch_bar.html" />
+    <Content Include="flatlab-master\lobby.html" />
+    <Content Include="flatlab-master\lock_screen.html" />
+    <Content Include="flatlab-master\login.html" />
+    <Content Include="flatlab-master\mega_menu.html" />
+    <Content Include="flatlab-master\modal.html" />
+    <Content Include="flatlab-master\morris.html" />
+    <Content Include="flatlab-master\nestable.html" />
+    <Content Include="flatlab-master\people_directory.html" />
+    <Content Include="flatlab-master\pricing_table.html" />
+    <Content Include="flatlab-master\product_details.html" />
+    <Content Include="flatlab-master\product_list.html" />
+    <Content Include="flatlab-master\profile-activity.html" />
+    <Content Include="flatlab-master\profile-edit.html" />
+    <Content Include="flatlab-master\profile.html" />
+    <Content Include="flatlab-master\project_details.html" />
+    <Content Include="flatlab-master\project_list.html" />
+    <Content Include="flatlab-master\registration.html" />
+    <Content Include="flatlab-master\responsive_table.html" />
+    <Content Include="flatlab-master\search_result.html" />
+    <Content Include="flatlab-master\sidebar_closed.html" />
+    <Content Include="flatlab-master\slider.html" />
+    <Content Include="flatlab-master\toastr.html" />
+    <Content Include="flatlab-master\todo_list.html" />
+    <Content Include="flatlab-master\tree.html" />
+    <Content Include="flatlab-master\widget.html" />
+    <Content Include="flatlab-master\xchart.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="flatlab-master\LICENSE" />
+    <Content Include="flatlab-master\README.md" />
+    <Content Include="flatlab-master\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="flatlab-master\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="flatlab-master\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="flatlab-master\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="flatlab-master\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="flatlab-master\assets\font-awesome\less\animated.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\core.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\icons.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\larger.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\list.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\mixins.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\path.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\screen-reader.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\stacked.less" />
+    <Content Include="flatlab-master\assets\font-awesome\less\variables.less" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_core.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_list.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_path.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="flatlab-master\assets\font-awesome\scss\_variables.scss" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\GetJobList.cshtml" />
+    <Content Include="Views\Job\AddJob.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\ManagerJob\Index.cshtml" />
+    <Content Include="Views\ManagerJob\AddJob.cshtml" />
+    <Content Include="Views\ManagerJob\EditJob.cshtml" />
+    <Content Include="Views\Personnel\AddPersonnel.cshtml" />
+    <Content Include="Views\Personnel\EditPersonnel.cshtml" />
+    <Content Include="Views\Personnel\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddManager.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\AddCompany.cshtml" />
+    <Content Include="Views\Company\EditCompany.cshtml" />
+    <Content Include="Views\Mail\Inbox.cshtml" />
+    <Content Include="Views\Mail\GetMailDetails.cshtml" />
+    <Content Include="Views\Shared\MessageListMenu.cshtml" />
+    <Content Include="Views\Mail\Sendbox.cshtml" />
+    <Content Include="Views\Mail\NewMail.cshtml" />
+    <Content Include="Views\ErrorPages\Page404.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\ErrorPages\Page500.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{a96f897c-a7b2-4371-844e-e27a2f1b815d}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{186dc866-9987-4fcc-aab5-f856cf52777f}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{308be226-8962-457a-bd53-e6243db33d91}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51852</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51852/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

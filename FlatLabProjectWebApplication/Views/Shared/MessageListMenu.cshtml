@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.Mail
+
+
+<aside class="sm-side">
+
+    <div class="user-head">
+        <a href="javascript:;" class="inbox-avatar">
+            <img src="img/mail-avatar.jpg" alt="">
+        </a>
+        <div class="user-name">
+            <h5><a href="inbox.html#">@Session["UserName"]</a></h5>
+            <span><a href="inbox.html#">@Session["MailAddress"]</a></span>
+        </div>
+    </div>
+    <div class="inbox-body">
+        <a class="btn btn-compose" href="/Mail/NewMail">
+            Yeni Mail
+        </a>
+    </div>
+    <ul class="inbox-nav inbox-divider">
+        <li>
+            <a href="/Mail/Inbox"><i class="fa fa-inbox"></i> Gelen Kutusu <span class="label label-danger pull-right">@TempData["InboxCount"]</span></a>
+
+        </li>
+        <li>
+            <a href="/Mail/Sendbox"><i class="fa fa-envelope-o"></i> Gönderilenler <span class="label label-danger pull-right">@TempData["SendBoxCount"]</span></a>
+        </li>
+        <li>
+            <a href="inbox.html#"><i class=" fa fa-trash-o"></i> Trash</a>
+        </li>
+    </ul>
+
+    <div class="inbox-body text-center">
+        <div class="btn-group">
+            <a href="/Mail/NewMail" class="btn mini btn-primary">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+        <div class="btn-group">
+            <a href="javascript:;" class="btn mini btn-info">
+                <i class="fa fa-cog"></i>
+            </a>
+        </div>
+    </div>
+</aside>
+<script src="~/flatlab-master/js/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $("[href]").each(function () {
+            if (this.href == window.location.href) {
+                $(this).parent().addClass("active");
+            }
+        });
+    });
+</script>

@@ -1,0 +1,95 @@
+﻿@model EntityLayer.Concrete.Mail
+
+@{
+    ViewBag.Title = "Yeni Mail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Compose</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Compose</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row mail-box">
+        <div class="col-md-3">
+            @Html.Action("MessageListMenu", "Mail")
+        </div>
+        <!-- /.col -->
+        <div class="inbox-head">
+            <h3> Yeni Mail</h3>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title"></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        <form>
+                            <div class="form-group">
+                                <div class="col-lg-10">
+                                    @Html.EditorFor(model => model.ReceiverMail, new { htmlAttributes = new { @class = "form-control", placeholder = "Alıcı:", autofocus = "true" } })
+                                    @Html.ValidationMessageFor(model => model.ReceiverMail, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-10">
+                                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", placeholder = "Konu:" } })
+                                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(model => model.Importance, (List<SelectListItem>)ViewBag.ItemTypes, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        @Html.TextAreaFor(model => model.Message, 15, 124, new { htmlAttributes = new { @class = "form-control" } })
+                                        <br />
+                                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                                        <br />
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="form-group">
+                                    <div class="btn btn-primary btn-file">
+                                        <i class="fa fa-folder"></i> Dosya Ekle
+                                        <input type="file" name="attachment">
+                                    </div>
+                                    <p class="help-block">Max. 32MB</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <div class="float-right">
+                                    <button style="float:right" value="Create" type="submit" class="btn btn-primary"><i class="fa  fa-mail-forward"></i> Gönder</button>
+                                </div>
+                                <button type="reset" class="btn btn-default"><i class="fa fa-reply"></i> Temizle</button>
+                            </div>
+                        </form>
+                    }
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <!-- /.row -->
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
