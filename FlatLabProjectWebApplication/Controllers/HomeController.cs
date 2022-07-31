@@ -7,6 +7,7 @@ using System.Web.Security;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
+    [Authorize(Roles = "Manager , Personnel")]
     public class HomeController : Controller
     {
         public ActionResult Index()

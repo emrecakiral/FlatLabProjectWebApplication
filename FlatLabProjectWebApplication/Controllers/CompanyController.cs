@@ -11,7 +11,6 @@ using System.Web.Mvc;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class CompanyController : Controller
     {
         CompanyManager cm = new CompanyManager(new EfCompanyDal());
@@ -34,7 +33,7 @@ namespace FlatLabProjectWebApplication.Controllers
             if (result.IsValid)
             {
                 cm.CompanyAdd(item);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Company");
             }
             else
             {
@@ -53,10 +52,23 @@ namespace FlatLabProjectWebApplication.Controllers
             return View(companyvalue);
         }
         [HttpPost]
-        public ActionResult EditCompany(Company id)
+        public ActionResult EditCompany(Company item)
         {
-            cm.CompanyUpdate(id);
-            return RedirectToAction("Index");
+            CompanyValidator companyValidator = new CompanyValidator();
+            ValidationResult result = companyValidator.Validate(item);
+            if (result.IsValid)
+            {
+                cm.CompanyUpdate(item);
+                return RedirectToAction("Index", "Company");
+            }
+            else
+            {
+                foreach (var j in result.Errors)
+                {
+                    ModelState.AddModelError(j.PropertyName, j.ErrorMessage);
+                }
+            }
+            return RedirectToAction("Index", "Company");
         }
 
         public ActionResult DeleteCompany(int id)
@@ -64,7 +76,7 @@ namespace FlatLabProjectWebApplication.Controllers
             // todo: task var mı kontrol edilecek
             var companyvalue = cm.GetByID(id);
             cm.CompanyDelete(companyvalue);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Company");
         }
     }
 }
