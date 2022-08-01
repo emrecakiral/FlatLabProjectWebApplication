@@ -1,6 +1,6 @@
 # Task Yönetim Sistemi - FlatLabProjectWebApplication
 
-Henüz tamamlanmamış olan programın görselleri aşağıdadır.
+Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin görselleri aşağıdadır.
 
 ![Screenshot 2022-07-30 125634](https://user-images.githubusercontent.com/61161197/181915466-c23c044a-b6d0-422e-9e0c-e0cfd32eaa11.png)
 
