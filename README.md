@@ -22,4 +22,4 @@ Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin
 
 ***
 
-![image](https://user-images.githubusercontent.com/61161197/182085181-1e4e5aac-c0a8-4ceb-84aa-f7ff72a4712e.png)
+![image](https://user-images.githubusercontent.com/61161197/182086456-e5cf1409-27dc-4aa7-bf67-11813a9f9a5c.png)
