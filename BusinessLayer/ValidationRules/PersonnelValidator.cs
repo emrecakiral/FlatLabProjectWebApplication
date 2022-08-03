@@ -16,8 +16,8 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.SurName).NotEmpty().WithMessage("Soyad boş olamaz!");
             RuleFor(x => x.SurName).MinimumLength(2).WithMessage("Soyad 3 karakterden az olamaz!");
             RuleFor(x => x.SurName).MaximumLength(20).WithMessage("Soyad 20 karakterden fazla olamaz!");
-            RuleFor(x => x.Company).NotEmpty().WithMessage("Şirket boş olamaz!");
-            RuleFor(x => x.Manager).NotEmpty().WithMessage("Manager boş olamaz!");
+            RuleFor(x => x.CompanyID).NotEmpty().WithMessage("Şirket boş olamaz!");
+            RuleFor(x => x.ManagerID).NotEmpty().WithMessage("Manager boş olamaz!");
         }
     }
 }

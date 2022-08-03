@@ -21,19 +21,5 @@ namespace FlatLabProjectWebApplication.Controllers
             var managervalues = mm.GetList();
             return View(managervalues);
         }
-
-
-        [HttpGet]
-        public ActionResult AddManager()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult AddManager(Manager m)
-        {
-            ManagerManager mm = new ManagerManager(new EfManagerDal());
-            mm.ManagerAdd(m);
-            return RedirectToAction("/Admin");
-        }
     }
 }

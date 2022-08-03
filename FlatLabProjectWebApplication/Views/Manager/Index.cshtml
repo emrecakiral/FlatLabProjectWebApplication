@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Manager>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Yönetici Listesi
+                </header>
+                <table class="table table-striped table-advance table-hover">
+                    <thead>
+                        <tr>
+                            <th><i class="fa fa-bullhorn"></i> Mail</th>
+                            <th class="hidden-phone"><i class="glyphicon glyphicon-earphone"></i> Ad</th>
+                            <th><i class="glyphicon glyphicon-stats"></i> Soyad</th>
+                            <th><i class="glyphicon glyphicon-stats"></i> Şirket</th>
+                            <th><i class="glyphicon glyphicon-stats"></i> Personel Sayısı</th>
+                            <th><i class="glyphicon glyphicon-pencil"></i> İşlem</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td><a href="/Manager/EditManager/@item.ManagerID">@Html.DisplayFor(modelItem => item.MailAddress)</a></td>
+                                <td class="hidden-phone">@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td class="hidden-phone">@Html.DisplayFor(modelItem => item.SurName)</td>
+                                <td class="hidden-phone">@Html.DisplayFor(modelItem => item.Company.CompanyTitle)</td>
+                                <td><span class="label label-info label-mini">@Html.DisplayFor(modelItem => item.Role)</span></td>
+                                <td>
+                                    <a href="/Manager/EditManager/@item.ManagerID" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="/Manager/DeleteManager/@item.ManagerID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </section>
+        </div>
+    </div>
+</section>

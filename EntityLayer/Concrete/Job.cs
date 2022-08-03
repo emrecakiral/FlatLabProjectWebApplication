@@ -12,7 +12,6 @@ namespace EntityLayer.Concrete
         [Key]
         public int JobID { get; set; }
         public byte Priority { get; set; }
-        public bool Urgency { get; set; }
 
 
         [StringLength(50)]
@@ -29,8 +28,9 @@ namespace EntityLayer.Concrete
         public bool Status { get; set; }
 
 
-        public ICollection<Personnel> Personnels { get; set; }
+        public int ManagerID { get; set; }
         public virtual Manager Manager { get; set; }
+        public ICollection<Personnel> Personnels { get; set; }
 
     }
 }

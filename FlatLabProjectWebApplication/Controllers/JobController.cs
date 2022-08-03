@@ -21,7 +21,7 @@ namespace FlatLabProjectWebApplication.Controllers
             return View();
         }
 
-        public ActionResult GetJobList()
+        public ActionResult GetJobList(int id)
         {
             var jobvalues = jm.GetList();
             return View(jobvalues);

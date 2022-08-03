@@ -12,9 +12,9 @@ namespace BusinessLayer.ValidationRules
     {
         public CompanyValidator()
         {
-            RuleFor(x => x.Address).NotEmpty().WithMessage("Başlık boş olamaz!");
-            RuleFor(x => x.Phone).NotEmpty().WithMessage("İçerik boş olamaz!");
-            RuleFor(x => x.CompanyTitle).NotEmpty().WithMessage("Personel boş olamaz!");
+            RuleFor(x => x.Address).NotEmpty().WithMessage("Adres boş olamaz!");
+            RuleFor(x => x.Phone).NotEmpty().WithMessage("Telefon boş olamaz!");
+            RuleFor(x => x.CompanyTitle).NotEmpty().WithMessage("Ünvan boş olamaz!");
         }
     }
 }

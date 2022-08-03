@@ -29,7 +29,9 @@ namespace EntityLayer.Concrete
         public string MailAddress { get; set; }
         public string Role { get; set; }
 
-        public ICollection<Personnel> Personnels { get; set; }
+
+        public int CompanyID { get; set; }
         public virtual Company Company { get; set; }
+        public ICollection<Personnel> Personnels { get; set; }
     }
 }

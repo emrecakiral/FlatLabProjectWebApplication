@@ -257,6 +257,9 @@
     <Content Include="flatlab-master\assets\xchart\xcharts.css" />
     <Content Include="flatlab-master\assets\xchart\xcharts.min.js" />
     <Content Include="flatlab-master\css\bootstrap-reset.css" />
+    <Content Include="flatlab-master\css\bootstrap-theme.css" />
+    <Content Include="flatlab-master\css\bootstrap-theme.min.css" />
+    <Content Include="flatlab-master\css\bootstrap.css" />
     <Content Include="flatlab-master\css\bootstrap.min.css" />
     <Content Include="flatlab-master\css\gallery.css" />
     <Content Include="flatlab-master\css\image-crop.css" />
@@ -270,6 +273,7 @@
     <Content Include="flatlab-master\css\table-responsive.css" />
     <Content Include="flatlab-master\css\tasks.css" />
     <Content Include="flatlab-master\css\yamm.css" />
+    <Content Include="flatlab-master\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="flatlab-master\img\avatar-mini.jpg" />
     <Content Include="flatlab-master\img\avatar-mini2.jpg" />
     <Content Include="flatlab-master\img\avatar-mini3.jpg" />
@@ -361,6 +365,7 @@
     <Content Include="flatlab-master\js\all-chartjs.js" />
     <Content Include="flatlab-master\js\bootstrap-switch.js" />
     <Content Include="flatlab-master\js\bootstrap-validator.min.js" />
+    <Content Include="flatlab-master\js\bootstrap.js" />
     <Content Include="flatlab-master\js\bootstrap.min.js" />
     <Content Include="flatlab-master\js\common-scripts.js" />
     <Content Include="flatlab-master\js\count.js" />
@@ -395,6 +400,7 @@
     <Content Include="flatlab-master\js\modernizr.custom.js" />
     <Content Include="flatlab-master\js\morris-script.js" />
     <Content Include="flatlab-master\js\nestable.js" />
+    <Content Include="flatlab-master\js\npm.js" />
     <Content Include="flatlab-master\js\owl.carousel.js" />
     <Content Include="flatlab-master\js\pulstate.js" />
     <Content Include="flatlab-master\js\respond.min.js" />
@@ -444,6 +450,14 @@
     <Content Include="flatlab-master\assets\font-awesome\scss\_screen-reader.scss" />
     <Content Include="flatlab-master\assets\font-awesome\scss\_stacked.scss" />
     <Content Include="flatlab-master\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="flatlab-master\css\bootstrap-theme.css.map" />
+    <Content Include="flatlab-master\css\bootstrap-theme.min.css.map" />
+    <Content Include="flatlab-master\css\bootstrap.css.map" />
+    <Content Include="flatlab-master\css\bootstrap.min.css.map" />
+    <Content Include="flatlab-master\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="flatlab-master\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="flatlab-master\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="flatlab-master\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -479,7 +493,6 @@
     <Content Include="Views\Personnel\EditPersonnel.cshtml" />
     <Content Include="Views\Personnel\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\AddManager.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\AddCompany.cshtml" />
     <Content Include="Views\Company\EditCompany.cshtml" />
@@ -492,11 +505,13 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\ErrorPages\Page500.cshtml" />
+    <Content Include="Views\Manager\AddManager.cshtml" />
+    <Content Include="Views\Manager\EditManager.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Manager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

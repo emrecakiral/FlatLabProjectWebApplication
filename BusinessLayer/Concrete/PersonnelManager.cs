@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Personnel> GetListByID(int id)
         {
-            return _personnelDal.List(x => x.Manager.ManagerID == id);
+            return _personnelDal.List(x => x.PersonnelID== id);
         }
 
         public void PersonnelAdd(Personnel personnel)

@@ -94,6 +94,30 @@
     <Compile Include="Migrations\202207290912290_Add_role.designer.cs">
       <DependentUpon>202207290912290_Add_role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208021123582_ManagerUpdate.cs" />
+    <Compile Include="Migrations\202208021123582_ManagerUpdate.designer.cs">
+      <DependentUpon>202208021123582_ManagerUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021402243_JobTableUpdate.cs" />
+    <Compile Include="Migrations\202208021402243_JobTableUpdate.designer.cs">
+      <DependentUpon>202208021402243_JobTableUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021639452_ManagersUpdate2.cs" />
+    <Compile Include="Migrations\202208021639452_ManagersUpdate2.designer.cs">
+      <DependentUpon>202208021639452_ManagersUpdate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021755453_PersonnelFix.cs" />
+    <Compile Include="Migrations\202208021755453_PersonnelFix.designer.cs">
+      <DependentUpon>202208021755453_PersonnelFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021805219_PersonnelFix2.cs" />
+    <Compile Include="Migrations\202208021805219_PersonnelFix2.designer.cs">
+      <DependentUpon>202208021805219_PersonnelFix2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208030410504_TableUpdate2.cs" />
+    <Compile Include="Migrations\202208030410504_TableUpdate2.designer.cs">
+      <DependentUpon>202208030410504_TableUpdate2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -128,6 +152,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207290912290_Add_role.resx">
       <DependentUpon>202207290912290_Add_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021123582_ManagerUpdate.resx">
+      <DependentUpon>202208021123582_ManagerUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021402243_JobTableUpdate.resx">
+      <DependentUpon>202208021402243_JobTableUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021639452_ManagersUpdate2.resx">
+      <DependentUpon>202208021639452_ManagersUpdate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021755453_PersonnelFix.resx">
+      <DependentUpon>202208021755453_PersonnelFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021805219_PersonnelFix2.resx">
+      <DependentUpon>202208021805219_PersonnelFix2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208030410504_TableUpdate2.resx">
+      <DependentUpon>202208030410504_TableUpdate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -68,7 +68,7 @@ namespace FlatLabProjectWebApplication.Controllers
                     ModelState.AddModelError(j.PropertyName, j.ErrorMessage);
                 }
             }
-            return RedirectToAction("Index", "Company");
+            return View();
         }
 
         public ActionResult DeleteCompany(int id)
