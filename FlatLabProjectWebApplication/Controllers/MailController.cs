@@ -15,29 +15,21 @@ namespace FlatLabProjectWebApplication.Controllers
     [Authorize]
     public class MailController : Controller
     {
-        
+
         MailManager mm = new MailManager(new EfMailDal());
         MailValidator mv = new MailValidator();
         public ActionResult Inbox()
         {
-            Context c = new Context();
             string receiverMail = (string)Session["MailAddress"];
-            var userinfo = c.Personnels.Where(x => x.MailAddress == receiverMail).Select(y => y.MailAddress).FirstOrDefault();
-            if (userinfo == null)
-                userinfo = c.Managers.Where(x => x.MailAddress == receiverMail).Select(y => y.MailAddress).FirstOrDefault();
-            var mailvalues = mm.GetListInbox(userinfo).OrderByDescending(x=> x.Date).ToList();
+            var mailvalues = mm.GetListInbox(receiverMail);
             TempData["InboxCount"] = mailvalues.Count();
             return View(mailvalues);
         }
 
         public ActionResult Sendbox()
         {
-            Context c = new Context();
             string senderMail = (string)Session["MailAddress"];
-            var userinfo = c.Personnels.Where(x => x.MailAddress == senderMail).Select(y => y.MailAddress).FirstOrDefault();
-            if (userinfo == null)
-                userinfo = c.Managers.Where(x => x.MailAddress == senderMail).Select(y => y.MailAddress).FirstOrDefault();
-            var mailvalues = mm.GetSendInbox(userinfo).OrderByDescending(x => x.Date).ToList();
+            var mailvalues = mm.GetSendInbox(senderMail);
             TempData["SendBoxCount"] = mailvalues.Count();
             return View(mailvalues);
         }
@@ -91,6 +83,19 @@ namespace FlatLabProjectWebApplication.Controllers
         public PartialViewResult MessageListMenu()
         {
             return PartialView();
+        }
+
+        public PartialViewResult SearchMail(string searchVal)
+        {
+            string receiverMail = (string)Session["MailAddress"];
+            var mailvalues = mm.GetListInbox(receiverMail);
+
+            var resultSearch = new List<Mail>();
+            if (!string.IsNullOrWhiteSpace(searchVal))
+                if (searchVal.Length >= 3)
+                    resultSearch = mm.FindByCriter(c => c.Subject.ToLower().Contains(searchVal.ToLower()));
+
+            return PartialView(resultSearch.ToList());
         }
     }
 }

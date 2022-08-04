@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Mail>
+
+
+@*@foreach (var item in Model)
+{
+    <ul class="list-group">
+        <li class="">
+            <div>
+                @Html.DisplayFor(modelItem => item.SenderMail)
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.Message)
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.Importance)
+            </div>
+            <div>
+                <h6> @Html.DisplayFor(modelItem => item.Date)</h6>
+            </div>
+        </li>
+    </ul>
+}*@
+<div class="inbox-head">
+    <h3>Arama Sonuçları</h3>
+</div>
+<table class="table table-inbox table-hover">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="">
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star inbox-star"></i></td>
+                <td class="view-message dont-show">
+                    <a href="/Mail/GetMailDetails/@item.ID">@item.Subject</a>
+                    @switch (item.Importance)
+                    {
+                        case "1":
+                            <span class="label label-success pull-right">Önemsiz <i class="fa fa-coffee"></i></span>
+                            break;
+                        case "2":
+                            <span class="label label-info pull-right">Öncelikli <i class="fa fa-exclamation"></i></span>
+                            break;
+                        case "3":
+                            <span class="label label-danger pull-right">ACİL <i class="fa fa-exclamation-triangle"></i></span>
+                            break;
+                        default:
+                            break;
+
+                    }
+                </td>
+                <td class="view-message"> <a href="/Mail/GetMailDetails/@item.ID">@item.Message.Substring(0, 30)...</a></td>
+                <td class="view-message inbox-small-cells"></td>
+                <td class="view-message text-right">@(((DateTime)item.Date).ToString("dd/MMM/yyyy HH:mm"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />

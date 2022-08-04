@@ -8,8 +8,8 @@
             <img src="img/mail-avatar.jpg" alt="">
         </a>
         <div class="user-name">
-            <h5><a href="inbox.html#">@Session["UserName"]</a></h5>
-            <span><a href="inbox.html#">@Session["MailAddress"]</a></span>
+            <h5><a href="/Mail/Inbox">@User.Identity.Name</a></h5>
+            <span><a href="/Mail/Inbox">@Session["MailAddress"]</a></span>
         </div>
     </div>
     <div class="inbox-body">

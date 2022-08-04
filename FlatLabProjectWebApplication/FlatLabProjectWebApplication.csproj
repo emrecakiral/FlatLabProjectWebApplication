@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GenelController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\ManagerJobController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
@@ -508,10 +509,13 @@
     <Content Include="Views\Manager\AddManager.cshtml" />
     <Content Include="Views\Manager\EditManager.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Mail\SearchMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\NotificationsViewComponent\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

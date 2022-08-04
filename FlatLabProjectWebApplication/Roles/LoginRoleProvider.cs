@@ -41,19 +41,15 @@ namespace FlatLabProjectWebApplication.Roles
         {
             Context c = new Context();
             Personnel perinfo = c.Personnels.FirstOrDefault(x => x.MailAddress == mail);
-            Manager maninfo = c.Managers.FirstOrDefault(x => x.MailAddress == mail);
-            Admin admininfo = c.Admins.FirstOrDefault(x => x.MailAddress == mail);
-
             if (perinfo != null)
-            {
                 return new string[] { perinfo.Role };
-            }
-            else if (maninfo != null)
-            {
-                return new string[] { maninfo.Role };
-            }
 
-                return new string[] { admininfo.Role };
+            Manager maninfo = c.Managers.FirstOrDefault(x => x.MailAddress == mail);
+            if(maninfo != null)
+                return new string[] { maninfo.Role };
+
+            Admin admininfo = c.Admins.FirstOrDefault(x => x.MailAddress == mail);
+            return new string[] { admininfo.Role };
         }
 
         public override string[] GetUsersInRole(string roleName)

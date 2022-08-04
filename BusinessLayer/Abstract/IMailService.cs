@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         void MailAdd(Mail mail);
         Mail GetByID(int id);
         void MailDelete(Mail mail);
+        List<Mail> FindByCriter(Func<Mail, bool> expression );
     }
 }

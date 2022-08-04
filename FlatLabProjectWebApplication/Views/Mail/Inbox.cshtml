@@ -30,10 +30,15 @@
                 <h3>Gelen Kutusu</h3>
                 <form class="pull-right position" action="inbox.html#">
                     <div class="input-append">
-                        <input type="text" placeholder="Search Mail" class="sr-input">
+                        <input type="text" id="mailSearch" placeholder="Mail Ara" class="sr-input">
                         <button type="button" class="btn sr-btn"><i class="fa fa-search"></i></button>
                     </div>
                 </form>
+            </div>
+            <div class="col-lg-9" style="position:relative; margin-bottom:20px;">
+
+
+
             </div>
             <div class="inbox-body">
                 <div class="mail-option">
@@ -92,6 +97,8 @@
                         </li>
                     </ul>
                 </div>
+                <div id="searchBox">
+                </div>
                 <table class="table table-inbox table-hover">
                     <tbody>
                         @foreach (var item in Model)
@@ -133,3 +140,30 @@
 </body>
 </html>
 
+<script>
+
+    $(document).ready(function (){
+
+        $("#mailSearch").keyup(function () {
+
+            var searchVal = $(this).val();
+
+
+            $.ajax({
+                type: "GET",
+                url: "/Mail/SearchMail",
+                data: { searchVal: searchVal }, // parameter
+                dataType: "html", // response data type...
+                success: function (response) {  // response
+
+                    $("#searchBox").html(response);
+
+                }
+            });
+
+
+        });
+
+    });
+
+</script>
