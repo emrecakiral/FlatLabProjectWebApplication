@@ -11,10 +11,11 @@ using FluentValidation.Results;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class JobController : Controller
     {
-        // GET: Job
+        PersonnelManager pm = new PersonnelManager(new EfPersonnelDal());
+        ManagerManager mm = new ManagerManager(new EfManagerDal());
         JobManager jm = new JobManager(new EfJobDal());
         public ActionResult Index()
         {
@@ -27,14 +28,52 @@ namespace FlatLabProjectWebApplication.Controllers
             return View(jobvalues);
         }
 
+
         public ActionResult AddJob()
         {
+            Manager manager = mm.GetByMail(User.Identity.Name);
+            List<Personnel> perList = pm.GetListByManagerID(manager.ManagerID);
+
+            List<SelectListItem> personnels = (from x in perList
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.Name + " " + x.UserName,
+                                                   Value = x.PersonnelID.ToString(),
+                                               }).ToList();
+            ViewBag.personnelList = personnels;
+
+            var types = new List<SelectListItem>();
+            types.Add(new SelectListItem() { Text = "Yok", Value = 1.ToString(), Selected = true });
+            types.Add(new SelectListItem() { Text = "Normal", Value = 2.ToString() });
+            types.Add(new SelectListItem() { Text = "Öncelikli", Value = 3.ToString() });
+            types.Add(new SelectListItem() { Text = "Acil", Value = 4.ToString() });
+
+            ViewBag.Priority = types;
             return View();
         }
 
         [HttpPost]
         public ActionResult AddJob(Job item)
         {
+            Manager manager = mm.GetByMail(User.Identity.Name);
+            List<Personnel> perList = pm.GetListByManagerID(manager.ManagerID);
+            List<SelectListItem> personnels = (from x in perList
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.Name + " " + x.UserName,
+                                                   Value = x.PersonnelID.ToString(), Selected=true
+                                               }).ToList();
+            ViewBag.personnelList = personnels;
+
+            var types = new List<SelectListItem>();
+            types.Add(new SelectListItem() { Text = "Yok", Value = 1.ToString(), Selected = true });
+            types.Add(new SelectListItem() { Text = "Normal", Value = 2.ToString() });
+            types.Add(new SelectListItem() { Text = "Öncelikli", Value = 3.ToString() });
+            types.Add(new SelectListItem() { Text = "Acil", Value = 4.ToString() });
+
+            ViewBag.Priority = types;
+            item.CreationDate = DateTime.Now;
+            item.Status = true;
             JobValidator jobValidator = new JobValidator();
             ValidationResult result = jobValidator.Validate(item);
             if (result.IsValid)

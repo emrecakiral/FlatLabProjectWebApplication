@@ -15,5 +15,6 @@ namespace BusinessLayer.Abstract
         void PersonnelDelete(Personnel personnel);
         void PersonnelUpdate(Personnel personnel);
         Personnel GetById(int id);
+        List<Personnel> GetListByManagerID(int id);
     }
 }

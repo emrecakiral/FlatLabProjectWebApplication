@@ -31,15 +31,14 @@
                 <h3>Gönderilenler</h3>
                 <form class="pull-right position" action="inbox.html#">
                     <div class="input-append">
-                        <input type="text" placeholder="Search Mail" class="sr-input">
-                        <button type="button" class="btn sr-btn"><i class="fa fa-search"></i></button>
+                        <input type="text" onkeydown = "return (event.keyCode!=13);" id="mailSearch" placeholder="Mail Ara" class="sr-input">
                     </div>
                 </form>
             </div>
             <div class="inbox-body">
                 <div class="mail-option">
                     <div class="btn-group">
-                        <a class="btn mini tooltips" href="inbox.html#" data-toggle="dropdown" data-placement="top" data-original-title="Refresh">
+                        <a class="btn mini tooltips"  href="/Mail/SendBox" id="refresh" data-toggle="dropdown" data-placement="top" data-original-title="Yenile">
                             <i class=" fa fa-refresh"></i>
                         </a>
                     </div>
@@ -52,6 +51,8 @@
                             <a href="inbox.html#" class="np-btn"><i class="fa fa-angle-right pagination-right"></i></a>
                         </li>
                     </ul>
+                </div>
+                <div id="searchBox">
                 </div>
                 <table class="table table-inbox table-hover">
                     <tbody>
@@ -96,3 +97,44 @@
 </body>
 </html>
 
+
+<script>
+
+    $(document).ready(function (){
+
+        $("#mailSearch").keyup(function () {
+
+            var searchVal = $(this).val();
+
+
+            $.ajax({
+                type: "GET",
+                url: "/Mail/SearchMail",
+                data: { searchVal: searchVal }, // parameter
+                dataType: "html", // response data type...
+                success: function (response) {  // response
+
+                    $("#searchBox").html(response);
+
+                }
+            });
+
+
+        });
+
+        $("#refresh").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Mail/SendBox",
+                dataType: "html",
+                success: function (response) {
+                    $("body").html(response);
+                }
+            })
+
+
+        })
+
+    });
+
+</script>

@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
             return _personnelDal.List();
         }
 
+        public List<Personnel> GetListByManagerID(int id)
+        {
+            return _personnelDal.List(x => x.ManagerID == id);
+        }
+
         public List<Personnel> GetListByID(int id)
         {
             return _personnelDal.List(x => x.PersonnelID== id);

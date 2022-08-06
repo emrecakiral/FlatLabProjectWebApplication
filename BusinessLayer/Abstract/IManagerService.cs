@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Manager> GetList();
         void ManagerAdd(Manager manager);
         Manager GetByID(int id);
+        Manager GetByMail(string mail);
         void ManagerDelete(Manager manager);
         void ManagerUpdate(Manager manager);
     }

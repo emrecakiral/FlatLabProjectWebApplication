@@ -9,7 +9,6 @@
         </a>
         <div class="user-name">
             <h5><a href="/Mail/Inbox">@User.Identity.Name</a></h5>
-            <span><a href="/Mail/Inbox">@Session["MailAddress"]</a></span>
         </div>
     </div>
     <div class="inbox-body">
@@ -19,7 +18,7 @@
     </div>
     <ul class="inbox-nav inbox-divider">
         <li>
-            <a href="/Mail/Inbox"><i class="fa fa-inbox"></i> Gelen Kutusu <span class="label label-danger pull-right">@TempData["InboxCount"]</span></a>
+            <a href="/Mail/Inbox"><i class="fa fa-inbox"></i> Gelen Kutusu <span class="label label-danger pull-right">@TempData["inBoxCount"]</span></a>
 
         </li>
         <li>

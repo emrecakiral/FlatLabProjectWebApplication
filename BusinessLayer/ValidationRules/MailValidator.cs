@@ -14,7 +14,11 @@ namespace BusinessLayer.ValidationRules
         {
             RuleFor(x => x.Message).NotEmpty().WithMessage("Mesaj boş olamaz!");
             RuleFor(x => x.Message).MinimumLength(30).WithMessage("Mesaj 30 karakterden kısa olamaz!");
+
             RuleFor(x => x.Subject).NotEmpty().WithMessage("Başlık boş olamaz!");
+            RuleFor(x => x.Subject).MinimumLength(5).WithMessage("Başlık 5 karakterden kısa olamaz!");
+            RuleFor(x => x.Subject).MaximumLength(50).WithMessage("Başlık 50 karakterden uzun olamaz!");
+
             RuleFor(x => x.ReceiverMail).NotEmpty().WithMessage("Alıcı boş olamaz!");
         }
     }

@@ -20,7 +20,8 @@ namespace EntityLayer.Concrete
 
         [StringLength(1000)]
         public string Contents { get; set; }
-        public DateTime RemainingTime { get; set; }
+        public DateTime CompletionDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
 
         [StringLength(100)]

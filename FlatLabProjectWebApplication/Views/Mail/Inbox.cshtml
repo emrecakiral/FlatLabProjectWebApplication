@@ -30,15 +30,11 @@
                 <h3>Gelen Kutusu</h3>
                 <form class="pull-right position" action="inbox.html#">
                     <div class="input-append">
-                        <input type="text" id="mailSearch" placeholder="Mail Ara" class="sr-input">
-                        <button type="button" class="btn sr-btn"><i class="fa fa-search"></i></button>
+                        <input type="text" id="mailSearch" onkeydown = "return (event.keyCode!=13);" placeholder="Mail Ara" class="sr-input">
                     </div>
                 </form>
             </div>
             <div class="col-lg-9" style="position:relative; margin-bottom:20px;">
-
-
-
             </div>
             <div class="inbox-body">
                 <div class="mail-option">
@@ -58,7 +54,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <a class="btn mini tooltips" href="inbox.html#" data-toggle="dropdown" data-placement="top" data-original-title="Refresh">
+                        <a class="btn mini tooltips" href="/Mail/Inbox" id="refresh" data-toggle="dropdown" data-placement="top" data-original-title="Yenile">
                             <i class=" fa fa-refresh"></i>
                         </a>
                     </div>
@@ -99,7 +95,7 @@
                 </div>
                 <div id="searchBox">
                 </div>
-                <table class="table table-inbox table-hover">
+                <table id="mailTable" class="table table-inbox table-hover">
                     <tbody>
                         @foreach (var item in Model)
                         {
@@ -139,7 +135,6 @@
     <!--mail inbox end-->
 </body>
 </html>
-
 <script>
 
     $(document).ready(function (){
@@ -163,6 +158,19 @@
 
 
         });
+
+        $("#refresh").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Mail/Inbox",
+                dataType: "html",
+                success: function (response) {
+                    $("body").html(response);
+                }
+            })
+
+
+        })
 
     });
 

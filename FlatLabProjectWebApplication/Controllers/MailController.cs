@@ -20,18 +20,24 @@ namespace FlatLabProjectWebApplication.Controllers
         MailValidator mv = new MailValidator();
         public ActionResult Inbox()
         {
-            string receiverMail = (string)Session["MailAddress"];
-            var mailvalues = mm.GetListInbox(receiverMail);
-            TempData["InboxCount"] = mailvalues.Count();
-            return View(mailvalues);
+            string receiverMail = User.Identity.Name;
+            var mailvalues1 = mm.GetListInbox(receiverMail);
+            TempData["inBoxCount"] = mailvalues1.Count();
+            string senderMail = User.Identity.Name;
+            var mailvalues2 = mm.GetSendInbox(senderMail);
+            TempData["SendBoxCount"] = mailvalues2.Count();
+            return View(mailvalues1);
         }
 
         public ActionResult Sendbox()
         {
-            string senderMail = (string)Session["MailAddress"];
-            var mailvalues = mm.GetSendInbox(senderMail);
-            TempData["SendBoxCount"] = mailvalues.Count();
-            return View(mailvalues);
+            string receiverMail = User.Identity.Name;
+            var mailvalues1 = mm.GetListInbox(receiverMail);
+            TempData["inBoxCount"] = mailvalues1.Count();
+            string senderMail = User.Identity.Name;
+            var mailvalues2 = mm.GetSendInbox(senderMail);
+            TempData["SendBoxCount"] = mailvalues2.Count();
+            return View(mailvalues2);
         }
 
         public ActionResult NewMail()
@@ -51,7 +57,7 @@ namespace FlatLabProjectWebApplication.Controllers
             ValidationResult result = mv.Validate(mail);
             if (result.IsValid)
             {
-                mail.SenderMail = Session["MailAddress"].ToString();
+                mail.SenderMail = User.Identity.Name;
                 mail.Date = DateTime.Now;
                 mm.MailAdd(mail);
                 return RedirectToAction("Sendbox");
@@ -87,7 +93,7 @@ namespace FlatLabProjectWebApplication.Controllers
 
         public PartialViewResult SearchMail(string searchVal)
         {
-            string receiverMail = (string)Session["MailAddress"];
+            string receiverMail = User.Identity.Name;
             var mailvalues = mm.GetListInbox(receiverMail);
 
             var resultSearch = new List<Mail>();

@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             return _managerDal.Get(x => x.ManagerID == id);
         }
 
+        public Manager GetByMail(string mail)
+        {
+            return _managerDal.Get(x => x.MailAddress == mail);
+        }
+
         public List<Manager> GetList()
         {
             return _managerDal.List();
