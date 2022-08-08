@@ -47,7 +47,7 @@
                 <div class="sender-info">
                     <div class="row">
                         <div class="col-md-12">
-                            <strong><a href="MailTo:@Model.ReceiverMail">@Model.SenderMail</a></strong>
+                            <strong><a href="MailTo:@Model.SenderMail">@Model.SenderMail</a></strong>
 
                             dan
                             <span>[@Model.ReceiverMail]</span>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="attachment-mail">
                     <p>
-                        <span><i class="fa fa-paperclip"></i> 0 Ek &mdash; </span>
+                        <span><i class="fa fa-paperclip"></i> @Model.Document Ek &mdash; </span>
                         <a href="inbox_details.html#">Tüm Ekleri İndir</a>
                         |
                         <a href="inbox_details.html#">Tüm Ekleri Görüntüle</a>
@@ -83,8 +83,8 @@
                     </ul>
                 </div>
                 <div class="compose-btn pull-left">
-                    <a class="btn btn-sm btn-primary" href="http://thevectorlab.net/flatlab/mail_compose.html"><i class="fa fa-reply"></i> Yanıtla</a>
-                    <button class="btn btn-sm "><i class="fa fa-arrow-right"></i> İlet</button>
+                    <a class="btn btn-sm btn-primary" href="/Mail/NewMail" mail_compose.html"><i class="fa fa-reply"></i> Yanıtla</a>
+                    <a class="btn btn-sm " href="/Mail/NewMail"><i class="fa fa-arrow-right"></i> İlet</a>
                     <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn  btn-sm tooltips"><i class="fa fa-print"></i> </button>
                     <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm tooltips"><i class="fa fa-trash-o"></i></button>
                 </div>

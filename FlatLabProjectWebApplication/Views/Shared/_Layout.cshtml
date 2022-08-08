@@ -1,7 +1,4 @@
-﻿
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -27,7 +24,6 @@
 
     <link href="~/flatlab-master/css/style.css" rel="stylesheet">
     <link href="~/flatlab-master/css/style-responsive.css" rel="stylesheet" />
-
 </head>
 <body>
     <section id="container">
@@ -296,6 +292,9 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="~/flatlab-master/js/jquery.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/jquery.timeago.js"></script>
+    <script src="~/flatlab-master/js/jquery.timeago.tr.js"></script>
     <script src="~/flatlab-master/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="~/flatlab-master/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="~/flatlab-master/js/jquery.scrollTo.min.js"></script>
@@ -351,7 +350,13 @@
             });
         });
 
+
+        jQuery(document).ready(function () {
+            $("time.timeago").timeago();
+        });
+
     </script>
+
 
 </body>
 </html>

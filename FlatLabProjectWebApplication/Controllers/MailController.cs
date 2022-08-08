@@ -81,6 +81,14 @@ namespace FlatLabProjectWebApplication.Controllers
 
         public ActionResult GetMailDetails(int id)
         {
+
+            string receiverMail = User.Identity.Name;
+            var mailvalues1 = mm.GetListInbox(receiverMail);
+            TempData["inBoxCount"] = mailvalues1.Count();
+            string senderMail = User.Identity.Name;
+            var mailvalues2 = mm.GetSendInbox(senderMail);
+            TempData["SendBoxCount"] = mailvalues2.Count();
+
             var mailvalues = mm.GetByID(id);
             return View(mailvalues);
         }

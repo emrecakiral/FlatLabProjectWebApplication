@@ -1,7 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@using TimeAgo 
 @model List<Mail>
-
 
 <ul class="nav top-menu">
     <!-- settings start -->
@@ -101,11 +99,13 @@
             @foreach (var item in Model)
             {
                 <li>
-                    <a href="#">
+                    <a href="/Mail/GetMailDetails/@item.ID">
                         <span class="photo"><img alt="avatar" src="~/flatlab-master/img/avatar-mini.jpg"></span>
                         <span class="subject">
-                            <span class="from">@item.SenderMail</span>
-                            <span class="time">@(((DateTime)item.Date).ToString("dd/MM/yy"))</span>
+                            <span class="from">@item.SenderMail.Split('@').First()</span>
+                            <span class="time">
+                                <time class="timeago" datetime="@item.Date.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.sssZ");"></time>
+                            </span>
                         </span>
                         <span class="message">
                             @item.Subject
@@ -176,11 +176,3 @@
     </li>
     <!-- notification dropdown end -->
 </ul>
-
-<script src="~/flatlab-master/js/jquery.js"></script>
-
-<script>
-    jQuery(document).ready(function () {
-        jQuery('abbr.timeago').timeago();
-    });
-</script>

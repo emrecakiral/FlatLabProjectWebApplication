@@ -18,5 +18,11 @@ namespace FlatLabProjectWebApplication.Controllers
             ViewBag.mailCount = mailvalues.Count();
             return PartialView(mailvalues);
         }
+
+        public PartialViewResult Tasks()
+        {
+
+            return PartialView();
+        }
     }
 }
