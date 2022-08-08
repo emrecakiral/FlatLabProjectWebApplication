@@ -6,7 +6,7 @@ Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin
 
 ***
 
-![image](https://user-images.githubusercontent.com/61161197/183254108-e680ac9e-a9fd-48de-bce6-995f3a6c59a6.png)
+![image](https://user-images.githubusercontent.com/61161197/183372397-648caa7b-2aca-48d1-a5dc-0b463c9638b6.png)
 
 
 ***
