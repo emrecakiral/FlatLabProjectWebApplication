@@ -20,6 +20,11 @@ namespace BusinessLayer.Concrete
             _mailDal = mailDal;
         }
 
+        public List<Mail> FindByCriter(Func<Mail, bool> item, List<Mail> mails)
+        {
+            return mails.Where(item).ToList();
+        }
+
         public List<Mail> FindByCriter(Func<Mail, bool> item)
         {
             return c.Mails.Where(item).ToList();

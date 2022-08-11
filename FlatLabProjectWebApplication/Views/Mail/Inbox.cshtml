@@ -42,13 +42,13 @@
                         <input type="checkbox" class="mail-checkbox mail-group-checkbox">
                         <div class="btn-group">
                             <a class="btn mini all" href="inbox.html#" data-toggle="dropdown">
-                                All
+                                Filtre
                                 <i class="fa fa-angle-down "></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="inbox.html#"> None</a></li>
-                                <li><a href="inbox.html#"> Read</a></li>
-                                <li><a href="inbox.html#"> Unread</a></li>
+                                <li><a href="inbox.html#"> Hepsi</a></li>
+                                <li><a href="inbox.html#"> Okunmuş</a></li>
+                                <li><a href="inbox.html#"> Okunmamış</a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,22 +58,10 @@
                             <i class=" fa fa-refresh"></i>
                         </a>
                     </div>
-                    <div class="btn-group hidden-phone">
-                        <a class="btn mini blue" href="inbox.html#" data-toggle="dropdown">
-                            More
-                            <i class="fa fa-angle-down "></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="inbox.html#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                            <li><a href="inbox.html#"><i class="fa fa-ban"></i> Spam</a></li>
-                            <li class="divider"></li>
-                            <li><a href="inbox.html#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                        </ul>
-                    </div>
+
                     <div class="btn-group">
                         <a class="btn mini blue" href="inbox.html#" data-toggle="dropdown">
-                            Move to
-                            <i class="fa fa-angle-down "></i>
+                            Sil
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="inbox.html#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
@@ -84,7 +72,7 @@
                     </div>
 
                     <ul class="unstyled inbox-pagination">
-                        <li><span>1-50 of 234</span></li>
+                        <li><span>1-@Model.Count() dan @Model.Count()</span></li>
                         <li>
                             <a href="inbox.html#" class="np-btn"><i class="fa fa-angle-left  pagination-left"></i></a>
                         </li>

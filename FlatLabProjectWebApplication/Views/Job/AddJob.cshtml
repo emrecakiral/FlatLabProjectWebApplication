@@ -7,6 +7,9 @@
 
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/bootstrap-datepicker/css/datepicker.css" />
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/jquery-multi-select/css/multi-select.css" />
+<!--select 2-->
+<link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/select2/css/select2.min.css" />
 <h2>AddJob</h2>
 
 @using (Html.BeginForm())
@@ -43,39 +46,26 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-2">Teslim Tarihi</label>
-            <div class="col-md-5">
-                <div class="input-group date form_datetime-component">
-                    <input type="text" class="form-control" readonly="" size="16">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-danger date-set"><i class="fa fa-calendar"></i></button>
-                    </span>
-                </div>
-                @Html.ValidationMessageFor(model => model.CompletionDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
             <label class="col-md-2">Son Tarih</label>
             <div class="col-md-7">
                 @Html.EditorFor(model => model.CompletionDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CompletionDate, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <label class="col-md-2">Dökümanlar</label>
-            <div class="col-md-7">
-                @Html.EditorFor(model => model.Document, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Document, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-2">Personeller</label>
             <div class="col-md-7">
-                @Html.DropDownListFor(model => model.Personnels, (List<SelectListItem>)ViewBag.personnelList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Personnels, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.PersonnelsIDs, (List<SelectListItem>)ViewBag.personnelList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PersonnelsIDs, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2">Dökümanlar</label>
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.Document, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Document, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -93,12 +83,33 @@
 }
 
 
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="~/flatlab-master/js/jquery.js"></script>
+<script src="~/flatlab-master/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="~/flatlab-master/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="~/flatlab-master/js/jquery.scrollTo.min.js"></script>
+<script src="~/flatlab-master/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="~/flatlab-master/js/respond.min.js"></script>
 <!--this page plugins-->
 <script type="text/javascript" src="~/flatlab-master/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="~/flatlab-master/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-
+<script type="text/javascript" src="~/flatlab-master/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="~/flatlab-master/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+<!--select2-->
+<script type="text/javascript" src="~/flatlab-master/assets/select2/js/select2.min.js"></script>
 <!--this page  script only-->
 <script src="~/flatlab-master/js/advanced-form-components.js"></script>
+<!--common script for all pages-->
+<script src="~/flatlab-master/js/common-scripts.js"></script>
 
 
+<!--select2-->
+<script type="text/javascript">
 
+    $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+
+        $(".js-example-basic-multiple").select2();
+    });
+</script>

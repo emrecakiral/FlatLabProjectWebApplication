@@ -66,61 +66,37 @@
     <Compile Include="EntityFramework\EfMailDal.cs" />
     <Compile Include="EntityFramework\EfManagerDal.cs" />
     <Compile Include="EntityFramework\EfPersonnelDal.cs" />
-    <Compile Include="Migrations\202207271501242_DbCreate.cs" />
-    <Compile Include="Migrations\202207271501242_DbCreate.designer.cs">
-      <DependentUpon>202207271501242_DbCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202208100519455_JobPersonnelsUpdate.cs" />
+    <Compile Include="Migrations\202208100519455_JobPersonnelsUpdate.designer.cs">
+      <DependentUpon>202208100519455_JobPersonnelsUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207271535072_MailImportance.cs" />
-    <Compile Include="Migrations\202207271535072_MailImportance.designer.cs">
-      <DependentUpon>202207271535072_MailImportance.cs</DependentUpon>
+    <Compile Include="Migrations\202208101208375_JobPersonnelsTableUpdate.cs" />
+    <Compile Include="Migrations\202208101208375_JobPersonnelsTableUpdate.designer.cs">
+      <DependentUpon>202208101208375_JobPersonnelsTableUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207271609262_MailDocumentAdded.cs" />
-    <Compile Include="Migrations\202207271609262_MailDocumentAdded.designer.cs">
-      <DependentUpon>202207271609262_MailDocumentAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202208101211183_JobPersonnelsTableUpdate2.cs" />
+    <Compile Include="Migrations\202208101211183_JobPersonnelsTableUpdate2.designer.cs">
+      <DependentUpon>202208101211183_JobPersonnelsTableUpdate2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207280917349_message_max_lenght.cs" />
-    <Compile Include="Migrations\202207280917349_message_max_lenght.designer.cs">
-      <DependentUpon>202207280917349_message_max_lenght.cs</DependentUpon>
+    <Compile Include="Migrations\202208101216585_ManagerTableJobAdded.cs" />
+    <Compile Include="Migrations\202208101216585_ManagerTableJobAdded.designer.cs">
+      <DependentUpon>202208101216585_ManagerTableJobAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207281348055_messagess.cs" />
-    <Compile Include="Migrations\202207281348055_messagess.designer.cs">
-      <DependentUpon>202207281348055_messagess.cs</DependentUpon>
+    <Compile Include="Migrations\202208101218562_ManagerTableJobAdded2.cs" />
+    <Compile Include="Migrations\202208101218562_ManagerTableJobAdded2.designer.cs">
+      <DependentUpon>202208101218562_ManagerTableJobAdded2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207290351411_admin_options.cs" />
-    <Compile Include="Migrations\202207290351411_admin_options.designer.cs">
-      <DependentUpon>202207290351411_admin_options.cs</DependentUpon>
+    <Compile Include="Migrations\202208101255440_ManagerTableJobAdded3.cs" />
+    <Compile Include="Migrations\202208101255440_ManagerTableJobAdded3.designer.cs">
+      <DependentUpon>202208101255440_ManagerTableJobAdded3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207290912290_Add_role.cs" />
-    <Compile Include="Migrations\202207290912290_Add_role.designer.cs">
-      <DependentUpon>202207290912290_Add_role.cs</DependentUpon>
+    <Compile Include="Migrations\202208101302154_TablesUpdate.cs" />
+    <Compile Include="Migrations\202208101302154_TablesUpdate.designer.cs">
+      <DependentUpon>202208101302154_TablesUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208021123582_ManagerUpdate.cs" />
-    <Compile Include="Migrations\202208021123582_ManagerUpdate.designer.cs">
-      <DependentUpon>202208021123582_ManagerUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208021402243_JobTableUpdate.cs" />
-    <Compile Include="Migrations\202208021402243_JobTableUpdate.designer.cs">
-      <DependentUpon>202208021402243_JobTableUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208021639452_ManagersUpdate2.cs" />
-    <Compile Include="Migrations\202208021639452_ManagersUpdate2.designer.cs">
-      <DependentUpon>202208021639452_ManagersUpdate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208021755453_PersonnelFix.cs" />
-    <Compile Include="Migrations\202208021755453_PersonnelFix.designer.cs">
-      <DependentUpon>202208021755453_PersonnelFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208021805219_PersonnelFix2.cs" />
-    <Compile Include="Migrations\202208021805219_PersonnelFix2.designer.cs">
-      <DependentUpon>202208021805219_PersonnelFix2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208030410504_TableUpdate2.cs" />
-    <Compile Include="Migrations\202208030410504_TableUpdate2.designer.cs">
-      <DependentUpon>202208030410504_TableUpdate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208050322591_JobsTableCreationDateAdded.cs" />
-    <Compile Include="Migrations\202208050322591_JobsTableCreationDateAdded.designer.cs">
-      <DependentUpon>202208050322591_JobsTableCreationDateAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202208101314532_TablesUpdate2.cs" />
+    <Compile Include="Migrations\202208101314532_TablesUpdate2.designer.cs">
+      <DependentUpon>202208101314532_TablesUpdate2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,47 +112,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202207271501242_DbCreate.resx">
-      <DependentUpon>202207271501242_DbCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208100519455_JobPersonnelsUpdate.resx">
+      <DependentUpon>202208100519455_JobPersonnelsUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207271535072_MailImportance.resx">
-      <DependentUpon>202207271535072_MailImportance.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101208375_JobPersonnelsTableUpdate.resx">
+      <DependentUpon>202208101208375_JobPersonnelsTableUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207271609262_MailDocumentAdded.resx">
-      <DependentUpon>202207271609262_MailDocumentAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101211183_JobPersonnelsTableUpdate2.resx">
+      <DependentUpon>202208101211183_JobPersonnelsTableUpdate2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207280917349_message_max_lenght.resx">
-      <DependentUpon>202207280917349_message_max_lenght.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101216585_ManagerTableJobAdded.resx">
+      <DependentUpon>202208101216585_ManagerTableJobAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207281348055_messagess.resx">
-      <DependentUpon>202207281348055_messagess.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101218562_ManagerTableJobAdded2.resx">
+      <DependentUpon>202208101218562_ManagerTableJobAdded2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207290351411_admin_options.resx">
-      <DependentUpon>202207290351411_admin_options.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101255440_ManagerTableJobAdded3.resx">
+      <DependentUpon>202208101255440_ManagerTableJobAdded3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207290912290_Add_role.resx">
-      <DependentUpon>202207290912290_Add_role.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101302154_TablesUpdate.resx">
+      <DependentUpon>202208101302154_TablesUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208021123582_ManagerUpdate.resx">
-      <DependentUpon>202208021123582_ManagerUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208021402243_JobTableUpdate.resx">
-      <DependentUpon>202208021402243_JobTableUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208021639452_ManagersUpdate2.resx">
-      <DependentUpon>202208021639452_ManagersUpdate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208021755453_PersonnelFix.resx">
-      <DependentUpon>202208021755453_PersonnelFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208021805219_PersonnelFix2.resx">
-      <DependentUpon>202208021805219_PersonnelFix2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208030410504_TableUpdate2.resx">
-      <DependentUpon>202208030410504_TableUpdate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208050322591_JobsTableCreationDateAdded.resx">
-      <DependentUpon>202208050322591_JobsTableCreationDateAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208101314532_TablesUpdate2.resx">
+      <DependentUpon>202208101314532_TablesUpdate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -107,7 +107,7 @@ namespace FlatLabProjectWebApplication.Controllers
             var resultSearch = new List<Mail>();
             if (!string.IsNullOrWhiteSpace(searchVal))
                 if (searchVal.Length >= 3)
-                    resultSearch = mm.FindByCriter(c => c.Subject.ToLower().Contains(searchVal.ToLower()));
+                    resultSearch = mm.FindByCriter(x => x.Subject.ToLower().Contains(searchVal.ToLower()), mailvalues);
 
             return PartialView(resultSearch.ToList());
         }

@@ -35,9 +35,9 @@ namespace EntityLayer.Concrete
         public int ManagerID { get; set; }
         public virtual Manager Manager { get; set; }
 
-        public ICollection<Job> Jobs { get; set; }
-
         public int CompanyID { get; set; }
         public virtual Company Company { get; set; }
+
+        public ICollection<Job> Jobs { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int JobID { get; set; }
-        public byte Priority { get; set; }
+        public string Priority { get; set; }
 
 
         [StringLength(50)]
@@ -31,7 +31,8 @@ namespace EntityLayer.Concrete
 
         public int ManagerID { get; set; }
         public virtual Manager Manager { get; set; }
-        public ICollection<Personnel> Personnels { get; set; }
 
+        public List<int> PersonnelsIDs { get; set; }
+        public ICollection<Personnel> Personnels { get; set; }
     }
 }

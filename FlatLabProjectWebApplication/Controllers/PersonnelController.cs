@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
-    
+
     public class PersonnelController : Controller
     {
         readonly PersonnelManager pm = new PersonnelManager(new EfPersonnelDal());
@@ -40,7 +40,7 @@ namespace FlatLabProjectWebApplication.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddPersonnel(Personnel item )
+        public ActionResult AddPersonnel(Personnel item)
         {
             IEnumerable<SelectListItem> managervalue = (from x in mm.GetList()
                                                         select new SelectListItem
@@ -72,8 +72,9 @@ namespace FlatLabProjectWebApplication.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin, Personnel")]
-        public ActionResult EditPersonnel(int id)
+        public ActionResult EditPersonnel(string username)
         {
+            Personnel perValue = pm.GetByUserName(username);
             IEnumerable<SelectListItem> managervalue = (from x in mm.GetList()
                                                         select new SelectListItem
                                                         {
@@ -82,26 +83,12 @@ namespace FlatLabProjectWebApplication.Controllers
 
                                                         }).ToList();
             ViewBag.managers = managervalue;
-            //string userName = (string)Session["UserName"];
-            //Personnel personnel = pm.GetByUserName(userName);
-            //return View(personnel); personelin kendi controllerı içindir
-
-            var personnelvalue = pm.GetById(id);
             ViewBag.companies = cm.GetCompanyListItem();
-            return View(personnelvalue);
+            return View(perValue);
         }
         [HttpPost]
         public ActionResult EditPersonnel(Personnel item)
         {
-            IEnumerable<SelectListItem> managervalue = (from x in mm.GetList()
-                                                        select new SelectListItem
-                                                        {
-                                                            Text = x.Name,
-                                                            Value = x.ManagerID.ToString()
-
-                                                        }).ToList();
-            ViewBag.managers = managervalue;
-
             ViewBag.companies = cm.GetCompanyListItem();
             PersonnelValidator personnelValidator = new PersonnelValidator();
             ValidationResult result = personnelValidator.Validate(item);
@@ -115,34 +102,17 @@ namespace FlatLabProjectWebApplication.Controllers
                 foreach (var j in result.Errors)
                 {
                     ModelState.AddModelError(j.PropertyName, j.ErrorMessage);
+                    IEnumerable<SelectListItem> managervalue = (from x in mm.GetList()
+                                                                select new SelectListItem
+                                                                {
+                                                                    Text = x.Name,
+                                                                    Value = x.ManagerID.ToString()
+
+                                                                }).ToList();
+                    ViewBag.managers = managervalue;
                 }
             }
             return View();
-
-
-
-
-            //_layout için
-
-            //string userName = (string)Session["UserName"];
-            //Personnel personnel = pm.GetByUserName(userName);
-            //p.Company = personnel.Company;
-            //p.Jobs = personnel.Jobs;
-            //p.Manager = personnel.Manager;
-            //p.Role = personnel.Role;
-            //ValidationResult results = personnelvalidator.Validate(p);
-            //if (results.IsValid)
-            //{
-            //    pm.PersonnelUpdate(p);
-            //    return RedirectToAction("Index","Personnel");
-            //}
-            //else
-            //{
-            //    foreach (var item in results.Errors)
-            //    {
-            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-            //    }
-            //}
         }
     }
 }

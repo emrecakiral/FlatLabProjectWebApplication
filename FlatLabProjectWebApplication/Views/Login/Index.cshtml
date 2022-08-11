@@ -29,8 +29,8 @@
         <form method="post" class="form-signin" id="commentForm" action="/Login/Index">
             <h2 class="form-signin-heading">Giriş Yap</h2>
             <div class="login-wrap">
-                <input type="text" class="form-control" name="UserName" placeholder="Kullanıcı Adı" autofocus required/>
-                <input type="password" name="Password" class="form-control" placeholder="Şifre" required/>
+                <input type="text" class="form-control" name="UserName" placeholder="Kullanıcı Adı" autofocus required />
+                <input type="password" name="Password" class="form-control" placeholder="Şifre" required />
                 <label class="checkbox">
                     <input type="checkbox" value="remember-me"> Beni hatırla
                     <span class="pull-right">
@@ -41,13 +41,19 @@
             </div>
         </form>
     </div>
-    <script>
-        $("#commentForm").validate();
-    </script>
-<!-- js placed at the end of the document so the pages load faster -->
-    <script src="~/flatlab-master/js/jquery.js"></script>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Scripts/jquery.js"></script>
     <script src="~/flatlab-master/js/bootstrap.min.js"></script>
-    <script src="~/flatlab-master/js/jquery.validate.min.js"></script>
+    <script src="~/Scripts/messages_tr.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+
+    <script>
+        $("#commentForm").validate({
+            lang: 'tr'
+        });
+    </script>
 </body>
 </html>
 

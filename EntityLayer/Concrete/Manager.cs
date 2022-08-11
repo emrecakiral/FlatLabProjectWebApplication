@@ -32,6 +32,8 @@ namespace EntityLayer.Concrete
 
         public int CompanyID { get; set; }
         public virtual Company Company { get; set; }
+
+        public ICollection<Job> Jobs { get; set; }
         public ICollection<Personnel> Personnels { get; set; }
     }
 }

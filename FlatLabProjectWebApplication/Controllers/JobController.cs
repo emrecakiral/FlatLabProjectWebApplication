@@ -1,5 +1,4 @@
 ﻿using BusinessLayer.Concrete;
-using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
+using BusinessLayer.ValidationRules;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
@@ -22,7 +22,7 @@ namespace FlatLabProjectWebApplication.Controllers
             return View();
         }
 
-        public ActionResult GetJobList(int id)
+        public ActionResult GetJobList()
         {
             var jobvalues = jm.GetList();
             return View(jobvalues);
@@ -39,6 +39,7 @@ namespace FlatLabProjectWebApplication.Controllers
                                                {
                                                    Text = x.Name + " " + x.UserName,
                                                    Value = x.PersonnelID.ToString(),
+                                                   Selected = true
                                                }).ToList();
             ViewBag.personnelList = personnels;
 
@@ -47,6 +48,7 @@ namespace FlatLabProjectWebApplication.Controllers
             types.Add(new SelectListItem() { Text = "Normal", Value = 2.ToString() });
             types.Add(new SelectListItem() { Text = "Öncelikli", Value = 3.ToString() });
             types.Add(new SelectListItem() { Text = "Acil", Value = 4.ToString() });
+
 
             ViewBag.Priority = types;
             return View();
@@ -56,35 +58,36 @@ namespace FlatLabProjectWebApplication.Controllers
         public ActionResult AddJob(Job item)
         {
             Manager manager = mm.GetByMail(User.Identity.Name);
-            List<Personnel> perList = pm.GetListByManagerID(manager.ManagerID);
-            List<SelectListItem> personnels = (from x in perList
-                                               select new SelectListItem
-                                               {
-                                                   Text = x.Name + " " + x.UserName,
-                                                   Value = x.PersonnelID.ToString(), Selected=true
-                                               }).ToList();
-            ViewBag.personnelList = personnels;
-
-            var types = new List<SelectListItem>();
-            types.Add(new SelectListItem() { Text = "Yok", Value = 1.ToString(), Selected = true });
-            types.Add(new SelectListItem() { Text = "Normal", Value = 2.ToString() });
-            types.Add(new SelectListItem() { Text = "Öncelikli", Value = 3.ToString() });
-            types.Add(new SelectListItem() { Text = "Acil", Value = 4.ToString() });
-
-            ViewBag.Priority = types;
             item.CreationDate = DateTime.Now;
             item.Status = true;
+            item.ManagerID = manager.ManagerID;
             JobValidator jobValidator = new JobValidator();
             ValidationResult result = jobValidator.Validate(item);
             if (result.IsValid)
             {
                 jm.JobAdd(item);
-                return RedirectToAction("GetJobList");
+                return RedirectToAction("GetJobList", "Job");
             }
             else
             {
                 foreach (var j in result.Errors)
                 {
+                    List<Personnel> perList = pm.GetListByManagerID(manager.ManagerID);
+                    List<SelectListItem> personnels = (from x in perList
+                                                       select new SelectListItem
+                                                       {
+                                                           Text = x.Name + " " + x.UserName,
+                                                           Value = x.PersonnelID.ToString(),
+                                                           Selected = true
+                                                       }).ToList();
+                    ViewBag.personnelList = personnels;
+
+                    var types = new List<SelectListItem>();
+                    types.Add(new SelectListItem() { Text = "Yok", Value = 1.ToString(), Selected = true });
+                    types.Add(new SelectListItem() { Text = "Normal", Value = 2.ToString() });
+                    types.Add(new SelectListItem() { Text = "Öncelikli", Value = 3.ToString() });
+                    types.Add(new SelectListItem() { Text = "Acil", Value = 4.ToString() });
+                    ViewBag.Priority = types;
                     ModelState.AddModelError(j.PropertyName, j.ErrorMessage);
                 }
             }

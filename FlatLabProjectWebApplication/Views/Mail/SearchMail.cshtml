@@ -1,33 +1,10 @@
 ﻿@model IEnumerable<EntityLayer.Concrete.Mail>
 
-
-@*@foreach (var item in Model)
-{
-    <ul class="list-group">
-        <li class="">
-            <div>
-                @Html.DisplayFor(modelItem => item.SenderMail)
-            </div>
-            <div>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </div>
-            <div>
-                @Html.DisplayFor(modelItem => item.Message)
-            </div>
-            <div>
-                @Html.DisplayFor(modelItem => item.Importance)
-            </div>
-            <div>
-                <h6> @Html.DisplayFor(modelItem => item.Date)</h6>
-            </div>
-        </li>
-    </ul>
-}*@
 @if (Model.Count() > 0)
 
 {
 
-<div class="inbox-head">
+<div class="revenue-head">
     <h3>Arama Sonuçları</h3>
 </div>
 <table class="table table-inbox table-hover">
