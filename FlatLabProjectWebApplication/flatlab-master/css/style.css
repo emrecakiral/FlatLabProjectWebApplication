@@ -43,7 +43,7 @@ a, a:hover, a:focus {
     top: 0;
     width: 100%;
     min-height: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
 }
 
 
@@ -4749,7 +4749,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 .go-top {

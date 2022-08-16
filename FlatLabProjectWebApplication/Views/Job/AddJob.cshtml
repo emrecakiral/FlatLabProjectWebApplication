@@ -11,7 +11,6 @@
 <link href="~/flatlab-master/assets/bootstrap-timepicker/compiled/timepicker.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/jquery-multi-select/css/multi-select.css" />
-<link href="~/flatlab-master/css/jquery.datetimepicker.min.css" rel="stylesheet" />
 <link href="~/flatlab-master/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" rel="stylesheet" />
 <!--select 2-->
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/select2/css/select2.min.css" />
@@ -63,11 +62,28 @@
             @Html.ValidationMessageFor(model => model.CompletionDate, "", new { @class = "text-danger" })
         </div>
 
-        <div class="form-group">
+        <div class="form-group last">
             <label class="col-md-2">Personeller</label>
-            <div class="col-md-7">
-                @Html.DropDownListFor(model => model.PersonnelsIDs, (List<SelectListItem>)ViewBag.personnelList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PersonnelsIDs, "", new { @class = "text-danger" })
+            <div class="col-md-9">
+                <select name="country" class="multi-select" multiple="" id="my_multi_select3" style="position: absolute; left: -9999px;">
+                    <option value="ZW">Zimbabwe</option>
+                </select>
+                <div class="ms-container" id="ms-my_multi_select3">
+                    <div class="ms-selectable">
+                        <input type="text" class="form-control search-input" autocomplete="off" placeholder="search...">
+                        <ul class="ms-list" tabindex="-1">
+                            <li class="ms-elem-selectable ms-hover" id="AF-selectable" style="">
+                                <span>Afghanistan</span>
+                            </li>
+                            <li class="ms-elem-selectable ms-selected" id="AL-selectable" style="display: none;"><span>Albania</span></li>
+                        </ul>
+                    </div>
+                    <div class="ms-selection">
+                        <input type="text" class="form-control search-input" autocomplete="off" placeholder="search..."><ul class="ms-list" tabindex="-1">
+                            <li class="ms-elem-selection" id="AF-selection" style="display: none;"><span>Afghanistan</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -92,6 +108,16 @@
     </div>
 }
 
+@*<div class="form-group">
+        <label class="col-md-2">Personeller</label>
+        <div class="col-md-7">
+            @Html.DropDownListFor(model => model.PersonnelsIDs, (List<SelectListItem>)ViewBag.personnelList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PersonnelsIDs, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+
+
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="~/flatlab-master/js/jquery.js"></script>
 <script src="~/flatlab-master/js/bootstrap.min.js"></script>
@@ -101,7 +127,6 @@
 <script src="~/flatlab-master/js/respond.min.js"></script>
 <!--this page plugins-->
 <script type="text/javascript" src="~/flatlab-master/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-<script src="~/Scripts/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
@@ -112,6 +137,23 @@
 <!--common script for all pages-->
 <script src="~/flatlab-master/js/common-scripts.js"></script>
 
+
+<script>
+
+    jQuery(document).ready(function () {
+
+        $('.summernote').summernote({
+            height: 200,                 // set editor height
+
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+
+            focus: true                 // set focus to editable area after initializing summernote
+        });
+    });
+
+</script>
+
 <!--select2-->
 <script type="text/javascript">
 
@@ -119,5 +161,56 @@
         $(".js-example-basic-single").select2();
 
         $(".js-example-basic-multiple").select2();
+    });
+</script>
+
+<!--bootstrap swither-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Resets to the regular style
+        $('#dimension-switch').bootstrapSwitch('setSizeClass', '');
+        // Sets a mini switch
+        $('#dimension-switch').bootstrapSwitch('setSizeClass', 'switch-mini');
+        // Sets a small switch
+        $('#dimension-switch').bootstrapSwitch('setSizeClass', 'switch-small');
+        // Sets a large switch
+        $('#dimension-switch').bootstrapSwitch('setSizeClass', 'switch-large');
+
+
+        $('#change-color-switch').bootstrapSwitch('setOnClass', 'success');
+        $('#change-color-switch').bootstrapSwitch('setOffClass', 'danger');
+    });
+</script>
+
+<!-- swithery-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        //default
+        var elem = document.querySelector('.js-switch');
+        var init = new Switchery(elem);
+
+
+        //small
+        var elem = document.querySelector('.js-switch-small');
+        var switchery = new Switchery(elem, { size: 'small' });
+
+        //large
+        var elem = document.querySelector('.js-switch-large');
+        var switchery = new Switchery(elem, { size: 'large' });
+
+
+        //blue color
+        var elem = document.querySelector('.js-switch-blue');
+        var switchery = new Switchery(elem, { color: '#7c8bc7', jackColor: '#9decff' });
+
+        //green color
+        var elem = document.querySelector('.js-switch-yellow');
+        var switchery = new Switchery(elem, { color: '#FFA400', jackColor: '#ffffff' });
+
+        //red color
+        var elem = document.querySelector('.js-switch-red');
+        var switchery = new Switchery(elem, { color: '#ff6c60', jackColor: '#ffffff' });
+
+
     });
 </script>
