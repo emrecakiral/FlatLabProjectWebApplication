@@ -36,6 +36,7 @@ namespace BusinessLayer.Concrete
 
         public void JobAdd(Job job)
         {
+
             _jobdal.Insert(job);
         }
 

@@ -49,7 +49,7 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                            <img alt="avatar" src="img/avatar1_small.jpg">
+                            <img alt="" src="img/avatar1_small.jpg">
                             <span class="username">@User.Identity.Name.Split('@').First()</span>
                             <b class="caret"></b>
                         </a>
@@ -105,11 +105,21 @@
                     @if (User.IsInRole("Manager"))
 
                     {
-                        <li>
-                            <a class="" href="/Home/Index">
-                                <i class="fa fa-trophy"></i>
-                                <span>Görevlerim</span>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                <span>Görev İşlemleri</span>
+                                <span class="dcjq-icon"></span>
                             </a>
+                            <ul class="sub">
+                                <li>
+                                    <a class="" href="/Home/Index">
+                                        <i class="fa fa-trophy"></i>
+                                        <span>Görevlerim</span>
+                                    </a>
+                                </li>
+                                <li><a href="/Job/AddJob">Görev Oluştur</a></li>
+                            </ul>
                         </li>
                     }
                     <li>

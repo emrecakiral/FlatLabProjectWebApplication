@@ -7,13 +7,13 @@ namespace DataAccessLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class TablesUpdate2 : IMigrationMetadata
+    public sealed partial class ManagerIDNullable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TablesUpdate2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ManagerIDNullable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202208101314532_TablesUpdate2"; }
+            get { return "202208140820173_ManagerIDNullable"; }
         }
         
         string IMigrationMetadata.Source

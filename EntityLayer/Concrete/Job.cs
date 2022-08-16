@@ -29,7 +29,7 @@ namespace EntityLayer.Concrete
         public bool Status { get; set; }
 
 
-        public int ManagerID { get; set; }
+        public int? ManagerID { get; set; }
         public virtual Manager Manager { get; set; }
 
         public List<int> PersonnelsIDs { get; set; }

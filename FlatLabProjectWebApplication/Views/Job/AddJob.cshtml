@@ -5,9 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link href="~/flatlab-master/assets/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet" />
+<link href="~/flatlab-master/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/bootstrap-datepicker/css/datepicker.css" />
+<link href="~/flatlab-master/assets/bootstrap-timepicker/compiled/timepicker.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/jquery-multi-select/css/multi-select.css" />
+<link href="~/flatlab-master/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+<link href="~/flatlab-master/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" rel="stylesheet" />
 <!--select 2-->
 <link rel="stylesheet" type="text/css" href="~/flatlab-master/assets/select2/css/select2.min.css" />
 <h2>AddJob</h2>
@@ -46,11 +51,16 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-2">Son Tarih</label>
-            <div class="col-md-7">
-                @Html.EditorFor(model => model.CompletionDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CompletionDate, "", new { @class = "text-danger" })
+            <label class="col-md-2">Teslim Tarihi</label>
+            <div class="col-md-4">
+                <div class="input-group date">
+                    <input size="16" type="text" id="CompletionDate" name="CompletionDate" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" readonly="" class="form_datetime form-control">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger date-set"><i class="fa fa-calendar"></i></button>
+                    </span>
+                </div>
             </div>
+            @Html.ValidationMessageFor(model => model.CompletionDate, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
@@ -82,7 +92,6 @@
     </div>
 }
 
-
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="~/flatlab-master/js/jquery.js"></script>
 <script src="~/flatlab-master/js/bootstrap.min.js"></script>
@@ -92,7 +101,7 @@
 <script src="~/flatlab-master/js/respond.min.js"></script>
 <!--this page plugins-->
 <script type="text/javascript" src="~/flatlab-master/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-<script type="text/javascript" src="~/flatlab-master/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
 <script type="text/javascript" src="~/flatlab-master/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
@@ -102,7 +111,6 @@
 <script src="~/flatlab-master/js/advanced-form-components.js"></script>
 <!--common script for all pages-->
 <script src="~/flatlab-master/js/common-scripts.js"></script>
-
 
 <!--select2-->
 <script type="text/javascript">

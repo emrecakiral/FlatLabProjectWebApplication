@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
+using System.Data.Entity;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
@@ -17,6 +19,7 @@ namespace FlatLabProjectWebApplication.Controllers
         PersonnelManager pm = new PersonnelManager(new EfPersonnelDal());
         ManagerManager mm = new ManagerManager(new EfManagerDal());
         JobManager jm = new JobManager(new EfJobDal());
+        Context c = new Context();
         public ActionResult Index()
         {
             return View();
@@ -61,11 +64,26 @@ namespace FlatLabProjectWebApplication.Controllers
             item.CreationDate = DateTime.Now;
             item.Status = true;
             item.ManagerID = manager.ManagerID;
+            List<Personnel> selectedList = new List<Personnel>();
+
+            var save = c.Entry(item);
+            save.State = EntityState.Added;
+
             JobValidator jobValidator = new JobValidator();
             ValidationResult result = jobValidator.Validate(item);
             if (result.IsValid)
             {
                 jm.JobAdd(item);
+                save.State = EntityState.Modified;
+                save.Collection(i => i.Personnels).Load();
+                item.Personnels.Clear();
+
+                foreach (var pers in item.PersonnelsIDs)
+                {
+                    var perResult = c.Personnels.Find(pers);
+                    item.Personnels.Add(perResult);
+                }
+                c.SaveChanges();
                 return RedirectToAction("GetJobList", "Job");
             }
             else

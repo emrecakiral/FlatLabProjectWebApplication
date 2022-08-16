@@ -94,9 +94,9 @@
     <Compile Include="Migrations\202208101302154_TablesUpdate.designer.cs">
       <DependentUpon>202208101302154_TablesUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208101314532_TablesUpdate2.cs" />
-    <Compile Include="Migrations\202208101314532_TablesUpdate2.designer.cs">
-      <DependentUpon>202208101314532_TablesUpdate2.cs</DependentUpon>
+    <Compile Include="Migrations\202208140820173_ManagerIDNullable.cs" />
+    <Compile Include="Migrations\202208140820173_ManagerIDNullable.designer.cs">
+      <DependentUpon>202208140820173_ManagerIDNullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,8 +133,8 @@
     <EmbeddedResource Include="Migrations\202208101302154_TablesUpdate.resx">
       <DependentUpon>202208101302154_TablesUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208101314532_TablesUpdate2.resx">
-      <DependentUpon>202208101314532_TablesUpdate2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208140820173_ManagerIDNullable.resx">
+      <DependentUpon>202208140820173_ManagerIDNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
