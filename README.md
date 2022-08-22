@@ -1,4 +1,4 @@
-# Task Yönetim Sistemi - FlatLabProjectWebApplication
+# Task Yönetim Sistemi
 
 Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin görselleri aşağıdadır.
 
