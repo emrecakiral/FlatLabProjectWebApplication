@@ -19,10 +19,6 @@ Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin
 
 ***
 
-![Screenshot 2022-07-30 125628](https://user-images.githubusercontent.com/61161197/181915547-68646fda-9c52-43bd-ae8e-628e46cf4fd2.png)
-
-***
-
 ![image](https://user-images.githubusercontent.com/61161197/185962130-782a92d4-29a0-4d61-9708-74cfe79f69cd.png)
 
 ***
