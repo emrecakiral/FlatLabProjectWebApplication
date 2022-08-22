@@ -1,6 +1,8 @@
 # Task Yönetim Sistemi
 
-Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin görselleri aşağıdadır.
+### Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin görselleri aşağıdadır.
+
+***
 
 ![image](https://user-images.githubusercontent.com/61161197/185961834-ba992059-3c11-4bb5-bdeb-27fdf9e27f21.png)
 
