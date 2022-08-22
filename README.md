@@ -2,11 +2,11 @@
 
 Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin görselleri aşağıdadır.
 
-![Screenshot 2022-07-30 125634](https://user-images.githubusercontent.com/61161197/181915466-c23c044a-b6d0-422e-9e0c-e0cfd32eaa11.png)
+![image](https://user-images.githubusercontent.com/61161197/185961834-ba992059-3c11-4bb5-bdeb-27fdf9e27f21.png)
 
 ***
 
-![image](https://user-images.githubusercontent.com/61161197/183372397-648caa7b-2aca-48d1-a5dc-0b463c9638b6.png)
+![image](https://user-images.githubusercontent.com/61161197/185961901-324cf0e9-ce1c-4731-b034-8f43859854f8.png)
 
 
 ***
@@ -15,7 +15,7 @@ Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin
 
 ***
 
-![image](https://user-images.githubusercontent.com/61161197/184093614-74e1690a-e472-47e7-9fa2-97acea7a876b.png)
+![image](https://user-images.githubusercontent.com/61161197/185962027-9793af58-0922-4e4a-809a-ce4f67173dfc.png)
 
 ***
 
@@ -23,7 +23,7 @@ Henüz tamamlanmamış olan geliştirmeye devam ettiğim task yönetim panelinin
 
 ***
 
-![Screenshot 2022-07-30 134135](https://user-images.githubusercontent.com/61161197/181915567-d5ecd670-7f34-44f0-9bd4-000089f15c3c.png)
+![image](https://user-images.githubusercontent.com/61161197/185962130-782a92d4-29a0-4d61-9708-74cfe79f69cd.png)
 
 ***
 
