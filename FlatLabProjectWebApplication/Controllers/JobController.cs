@@ -4,7 +4,6 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
 using BusinessLayer.ValidationRules;
@@ -13,7 +12,7 @@ using System.Data.Entity;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Manager , Personnel")]
     public class JobController : Controller
     {
         PersonnelManager pm = new PersonnelManager(new EfPersonnelDal());
@@ -36,7 +35,6 @@ namespace FlatLabProjectWebApplication.Controllers
         {
             Manager manager = mm.GetByMail(User.Identity.Name);
             List<Personnel> perList = pm.GetListByManagerID(manager.ManagerID);
-
             List<SelectListItem> personnels = (from x in perList
                                                select new SelectListItem
                                                {
@@ -51,7 +49,6 @@ namespace FlatLabProjectWebApplication.Controllers
             types.Add(new SelectListItem() { Text = "Normal", Value = 2.ToString() });
             types.Add(new SelectListItem() { Text = "Öncelikli", Value = 3.ToString() });
             types.Add(new SelectListItem() { Text = "Acil", Value = 4.ToString() });
-
 
             ViewBag.Priority = types;
             return View();

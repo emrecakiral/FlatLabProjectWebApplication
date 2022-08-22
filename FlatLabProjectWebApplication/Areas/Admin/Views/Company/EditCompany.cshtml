@@ -1,20 +1,22 @@
 ﻿@model EntityLayer.Concrete.Company
 
 @{
-    ViewBag.Title = "AddCompany";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Şirket Bilgileri";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>AddCompany</h2>
+<h2>EditCompany</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("EditCompany", "Company", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal container">
-        <h4>Yeni Şirket Oluştur</h4>
+        <h4>Şirket Bilgilerini Düzenle</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CompanyID)
+
         <div class="form-group">
             <label class="col-md-2">Şirket Ünvanı</label>
             <div class="col-md-7">
@@ -27,7 +29,7 @@
             <label class="col-md-2">İletişim Numarası</label>
             <div class="col-md-7">
                 @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger"})
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -35,19 +37,14 @@
             <label class="col-md-2">Adres</label>
             <div class="col-md-7">
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                <br />
                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <br />
+        <br />
         <div class="form-group">
-            <br />
-            <br />
-            <div class="col-md-offset-2 col-md-2">
-                <input type="submit" value="Onayla" class="btn btn-primary btn-lg" />
-            </div>
-            <div class="col-md-5">
-                <button style="float:right" type="reset" value="Temizle" class="btn btn-default btn-lg">Temizle</button>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Güncelle" class="btn btn-primary btn-lg" />
             </div>
         </div>
     </div>

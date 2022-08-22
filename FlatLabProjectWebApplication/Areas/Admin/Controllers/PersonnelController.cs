@@ -9,7 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FlatLabProjectWebApplication.Controllers
+namespace FlatLabProjectWebApplication.Areas.Admin.Controllers
 {
 
     public class PersonnelController : Controller
@@ -72,9 +72,9 @@ namespace FlatLabProjectWebApplication.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin, Personnel")]
-        public ActionResult EditPersonnel(string username)
+        public ActionResult EditPersonnel(int id)
         {
-            Personnel perValue = pm.GetByUserName(username);
+            Personnel perValue = pm.GetById(id);
             IEnumerable<SelectListItem> managervalue = (from x in mm.GetList()
                                                         select new SelectListItem
                                                         {

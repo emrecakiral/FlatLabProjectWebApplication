@@ -16,48 +16,46 @@ namespace FlatLabProjectWebApplication.Controllers
     public class LoginController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                    return RedirectToAction("Index", "Manager", new { area = "Admin" });
+                else
+                    return RedirectToAction("Index", "Home");
+            }
+            TempData["returnUrl"] = returnUrl;
             return View();
         }
         [HttpPost]
         public ActionResult Index(Personnel o)
         {
+            string rUrl = (string)TempData["returnUrl"];
             Context c = new Context();
+            object user = new object();
 
-            Personnel perinfo = c.Personnels.FirstOrDefault(x => x.UserName == o.UserName && x.Password == o.Password);
+            user = c.Personnels.FirstOrDefault(x => x.UserName == o.UserName && x.Password == o.Password);
+            if (user == null)
+                user = c.Managers.FirstOrDefault(x => x.UserName == o.UserName && x.Password == o.Password);
+            if (user == null)
+                user = c.Admins.FirstOrDefault(x => x.UserName == o.UserName && x.Password == o.Password);
 
-            Manager maninfo = c.Managers.FirstOrDefault(x => x.UserName == o.UserName && x.Password == o.Password);
+            IHuman userPer = (IHuman)user;
+            FormsAuthentication.SetAuthCookie(userPer.MailAddress, false);
+            Session["UserName"] = userPer.UserName;
+            Session["Image"] = userPer.Image;
+            Session["FullName"] = userPer.Name + " " + userPer.SurName;
 
-            Admin admininfo = c.Admins.FirstOrDefault(x => x.UserName == o.UserName && x.Password == o.Password);
-
-            if (perinfo != null)
+            if (rUrl != null)
+                return Redirect(rUrl);
+            else
             {
-                FormsAuthentication.SetAuthCookie(perinfo.UserName, false);
-                FormsAuthentication.SetAuthCookie(perinfo.MailAddress, false);
-                Session["UserName"] = perinfo.UserName;
-                Session["MailAddress"] = perinfo.MailAddress;
-                return RedirectToAction("Index", "Home");
+                if (User.IsInRole("Admin"))
+                    return RedirectToAction("Index", "Manager", new { area = "Admin" });
+                else
+                    return RedirectToAction("Index", "Home");
             }
-            else if (maninfo != null)
-            {
-                FormsAuthentication.SetAuthCookie(maninfo.UserName, false);
-                FormsAuthentication.SetAuthCookie(maninfo.MailAddress, false);
-                Session["UserName"] = maninfo.UserName;
-                Session["MailAddress"] = maninfo.MailAddress;
-                return RedirectToAction("Index", "Home");
-            }
-            else if (admininfo != null)
-            {
-                FormsAuthentication.SetAuthCookie(admininfo.UserName, false);
-                FormsAuthentication.SetAuthCookie(admininfo.MailAddress, false);
-                Session["UserName"] = admininfo.UserName;
-                Session["MailAddress"] = admininfo.MailAddress;
-                return RedirectToAction("Index", "Admin");
-
-            }
-
-            return View();
         }
 
 

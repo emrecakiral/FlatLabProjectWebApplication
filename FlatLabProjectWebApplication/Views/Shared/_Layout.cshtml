@@ -49,13 +49,15 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                            <img alt="" src="img/avatar1_small.jpg">
-                            <span class="username">@User.Identity.Name.Split('@').First()</span>
+                            <img class="avatarMini" alt="" src="~/flatlab-master/img/photos/@Session["Image"]">
+                            <span class="username">
+                                @Session["UserName"]
+                            </span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="/Personnel/EditPersonnel/@User.Identity.Name.Split('@').First()"><i class=" fa fa-suitcase"></i>Profil</a></li>
+                            <li><a href="/Personnel/EditPersonnel/@User.Identity.Name"><i class=" fa fa-suitcase"></i>Profil</a></li>
                             <li><a href="index.html#"><i class="fa fa-cog"></i> Ayarlar</a></li>
                             <li><a href="index.html#"><i class="fa fa-bell-o"></i> Bildirimler</a></li>
                             <li><a href="/Login/Logout"><i class="fa fa-key"></i> Çıkış Yap</a></li>
@@ -328,10 +330,10 @@
 
     <script>
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 100)    // Sayfa ne kadar aşağı kayarsa buton görünsün. 100 sayısı = Kaydırma çubuğunun piksel konumu. Bu sayı değiştirilebilir.
-                $("#yukari").fadeIn(500);    // Yukarı çık butonu ne kadar hızla ortaya çıksın. 500 milisaniye = 0,5 saniye. Bu sayı değiştirilebilir.
+            if ($(this).scrollTop() > 100)
+                $("#yukari").fadeIn(500);
             else
-                $("#yukari").fadeOut(500);    // Yukarı çık butonu ne kadar hızla ortadan kaybolsun. 500 milisaniye = 0,5 saniye. Bu sayı değiştirilebilir.
+                $("#yukari").fadeOut(500);
         });
 
 
@@ -345,7 +347,6 @@
                 paginationSpeed: 400,
                 singleItem: true,
                 autoPlay: true
-
             });
         });
 
@@ -372,10 +373,8 @@
         jQuery(document).ready(function () {
             $("time.timeago").timeago();
 
-            $("#yukari").click(function () {    // Yukarı çık butonuna tıklanıldığında aşağıdaki satır çalışır.
-                $("html, body").animate({ scrollTop: "0" }, 500);    // Sayfa ne kadar hızla en yukarı çıksın.
-                // 0 sayısı sayfanın en üstüne çıkılacağını belirtir.
-                // 500 sayısı ne kadar hızla çıkılacağını belirtir. 500 milisaniye = 0,5 saniye. Bu sayı değiştirilebilir.
+            $("#yukari").click(function () {
+                $("html, body").animate({ scrollTop: "0" }, 500);
                 return false;
             });
         });

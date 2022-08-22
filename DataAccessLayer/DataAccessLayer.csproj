@@ -98,6 +98,14 @@
     <Compile Include="Migrations\202208140820173_ManagerIDNullable.designer.cs">
       <DependentUpon>202208140820173_ManagerIDNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208220657449_updateAdmin.cs" />
+    <Compile Include="Migrations\202208220657449_updateAdmin.designer.cs">
+      <DependentUpon>202208220657449_updateAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208220957486_deneme.cs" />
+    <Compile Include="Migrations\202208220957486_deneme.designer.cs">
+      <DependentUpon>202208220957486_deneme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208140820173_ManagerIDNullable.resx">
       <DependentUpon>202208140820173_ManagerIDNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208220657449_updateAdmin.resx">
+      <DependentUpon>202208220657449_updateAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208220957486_deneme.resx">
+      <DependentUpon>202208220957486_deneme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

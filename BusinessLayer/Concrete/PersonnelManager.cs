@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             return _personnelDal.Get(x => x.UserName == username);
         }
 
+        public Personnel GetByMail(string mail)
+        {
+            return _personnelDal.Get(x => x.MailAddress == mail);
+        }
+
         public List<Personnel> GetList()
         {
             return _personnelDal.List();

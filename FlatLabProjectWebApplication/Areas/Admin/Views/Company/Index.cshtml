@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Şirket Yönetimi";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <section class="wrapper">
@@ -29,8 +29,8 @@
                                 <td class="hidden-phone">@Html.DisplayFor(modelItem => item.Phone)</td>
                                 <td><span class="label label-info label-mini">@Html.DisplayFor(modelItem => item.Address)</span></td>
                                 <td>
-                                    <a href="/Company/EditCompany/@item.CompanyID" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                    <a href="/Company/DeleteCompany/@item.CompanyID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                                    <a href="/Admin/Company/EditCompany/@item.CompanyID" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="/Admin/Company/DeleteCompany/@item.CompanyID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
                                 </td>
                             </tr>
                         </tbody>

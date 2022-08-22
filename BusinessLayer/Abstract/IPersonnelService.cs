@@ -16,5 +16,6 @@ namespace BusinessLayer.Abstract
         void PersonnelUpdate(Personnel personnel);
         Personnel GetById(int id);
         List<Personnel> GetListByManagerID(int id);
+        Personnel GetByMail(string mail);
     }
 }

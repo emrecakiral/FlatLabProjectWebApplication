@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <section class="wrapper">
     <div class="row">
@@ -32,8 +32,8 @@
                                 <td class="hidden-phone">@Html.DisplayFor(modelItem => item.Company.CompanyTitle)</td>
                                 <td><span class="label label-info label-mini">@Html.DisplayFor(modelItem => item.Role)</span></td>
                                 <td>
-                                    <a href="/Manager/EditManager/@item.ManagerID" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                    <a href="/Manager/DeleteManager/@item.ManagerID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                                    <a href="/Admin/Manager/EditManager/@item.ManagerID" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                    <a href="/Admin/Manager/DeleteManager/@item.ManagerID" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
                                 </td>
                             </tr>
                         </tbody>

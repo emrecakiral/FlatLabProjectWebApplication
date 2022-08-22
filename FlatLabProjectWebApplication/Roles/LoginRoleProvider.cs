@@ -37,18 +37,18 @@ namespace FlatLabProjectWebApplication.Roles
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string mail)
+        public override string[] GetRolesForUser(string email)
         {
             Context c = new Context();
-            Personnel perinfo = c.Personnels.FirstOrDefault(x => x.MailAddress == mail);
+            Personnel perinfo = c.Personnels.FirstOrDefault(x => x.MailAddress == email);
             if (perinfo != null)
                 return new string[] { perinfo.Role };
 
-            Manager maninfo = c.Managers.FirstOrDefault(x => x.MailAddress == mail);
+            Manager maninfo = c.Managers.FirstOrDefault(x => x.MailAddress == email);
             if(maninfo != null)
                 return new string[] { maninfo.Role };
 
-            Admin admininfo = c.Admins.FirstOrDefault(x => x.MailAddress == mail);
+            Admin admininfo = c.Admins.FirstOrDefault(x => x.MailAddress == email);
             return new string[] { admininfo.Role };
         }
 

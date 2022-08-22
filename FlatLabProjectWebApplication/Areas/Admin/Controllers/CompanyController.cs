@@ -9,7 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FlatLabProjectWebApplication.Controllers
+namespace FlatLabProjectWebApplication.Areas.Admin.Controllers
 {
     public class CompanyController : Controller
     {

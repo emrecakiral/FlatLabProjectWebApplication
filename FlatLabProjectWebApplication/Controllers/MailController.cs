@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace FlatLabProjectWebApplication.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Manager , Personnel")]
     public class MailController : Controller
     {
 
